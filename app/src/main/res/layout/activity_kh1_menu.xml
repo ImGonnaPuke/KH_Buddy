@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A5ADB3"
-    tools:context=".kh2Menu">
-
+    android:background="#7FBAE7"
+    tools:context=".kh1Menu">
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="413dp"
@@ -79,16 +78,6 @@
         app:layout_constraintTop_toBottomOf="@+id/skill" />
 
     <Button
-        android:id="@+id/drive"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="276dp"
-        android:layout_marginLeft="276dp"
-        android:text="Drives"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/key" />
-
-    <Button
         android:id="@+id/skill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -97,5 +86,6 @@
         android:text="Skills"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/summ" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

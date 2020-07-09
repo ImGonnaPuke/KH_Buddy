@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
-        android:layout_marginTop="228dp"
+        android:layout_marginTop="360dp"
         android:width="400dp"
         android:height="100dp"
         android:background="#7FBAE7"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
-        android:layout_marginTop="384dp"
+        android:layout_marginTop="500dp"
         android:width="400dp"
         android:height="100dp"
         android:background="#A5ADB3"
@@ -38,13 +38,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="146dp"
-        android:layout_marginLeft="146dp"
-        android:layout_marginTop="29dp"
+        android:id="@+id/imageView2"
+        android:layout_width="343dp"
+        android:layout_height="343dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+        app:layout_constraintBottom_toTopOf="@+id/kh1"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        app:srcCompat="@drawable/logo_kh" />
 </androidx.constraintlayout.widget.ConstraintLayout>
