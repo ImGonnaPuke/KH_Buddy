@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">KH Buddy</string>
+
+    <string-array name="driveForms">
+        <item>Valor</item>
+        <item>Wisdom</item>
+        <item>Limit</item>
+        <item>Master</item>
+        <item>Final</item>
+        <item>Anti</item>
+    </string-array>
+    <string-array name="driveDesc">
+        <item>Obtained at Mysterious Tower</item>
+        <item>Obtained after completing Timeless River</item>
+        <item>After the second visit to Hollow Bastion</item>
+        <item>Obtained after reuniting with \n Mickey at Hollow Bastion</item>
+        <item>Obtained after fighting Roxas, randomly \n upon activating any drive</item>
+        <item>Activated randomly upon using drive \n forms 5 or  more times</item>
+    </string-array>
 </resources>
