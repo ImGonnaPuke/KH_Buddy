@@ -4,28 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class Drives extends AppCompatActivity {
+public class kh1Summon extends AppCompatActivity {
 
     private RecyclerView rView;
     private RecAdapter mAdapter;
     private ArrayList<Items> driveList;
     private RecyclerView.LayoutManager myLayout;
 
-    //private String s1[], s2[];
-    //int images[] = {R.drawable.valor, R.drawable.wisdom, R.drawable.limit, R.drawable.master, R.drawable.finalf, R.drawable.heartless};
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_drives);
+        setContentView(R.layout.activity_kh1_summon);
 
         genList();
         buildRecycle();
@@ -36,12 +30,13 @@ public class Drives extends AppCompatActivity {
 
     public void genList(){
         driveList = new ArrayList<>();
-        driveList.add(new Items (R.drawable.valor, "Valor Form", "Obtained at Mysterious Tower"));
-        driveList.add(new Items (R.drawable.wisdom, "Wisdom Form", "Obtained after completing Timeless River"));
-        driveList.add(new Items (R.drawable.master, "Master Form", "After the second visit to Hollow Bastion"));
-        driveList.add(new Items (R.drawable.valor, "Master Form", "Obtained after reuniting with \nMickey at Hollow Bastion"));
-        driveList.add(new Items (R.drawable.finalf, "Final Form", "Obtained after fighting Roxas, randomly \nupon activating any drive"));
-        driveList.add(new Items (R.drawable.heartless, "Anti Form", "Activated randomly upon using drive \nforms 5 or  more times"));
+        driveList.add(new Items (R.drawable.valor, "Simba", "Eathshine Gem from Leon in the Secret\nWaterway"));
+        driveList.add(new Items (R.drawable.wisdom, "Genie", "Complete Agrabah"));
+        driveList.add(new Items (R.drawable.master, "Dumbo", "Chest in Monstro's Mouth"));
+        driveList.add(new Items (R.drawable.valor, "Tinker Bell", "Complete Neverland"));
+        driveList.add(new Items (R.drawable.valor, "Mushu", "Defeat Dragon Maleficent"));
+
+        driveList.add(new Items (R.drawable.valor, "Bambi", "Complete the Hunny Tree minigame"));
     }
 
     public void showItem (int position) {
@@ -52,7 +47,7 @@ public class Drives extends AppCompatActivity {
         //toast.show();
 
         if(toToast.equals("Valor Form")) {
-            startActivity(new Intent(Drives.this, kh2Menu.class));
+            //startActivity(new Intent(Drives.this, kh2Menu.class));
         }
         else{
             Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);

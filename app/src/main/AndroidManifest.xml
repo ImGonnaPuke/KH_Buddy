@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.khbuddy">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -9,10 +10,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Drives"></activity>
+        <activity android:name=".kh1Skill"></activity>
+        <activity android:name=".kh1Partner" />
+        <activity android:name=".kh1Synth" />
+        <activity android:name=".kh1Acc" />
+        <activity android:name=".kh1Keyblades" />
+        <activity android:name=".kh1Spells" />
+        <activity android:name=".kh1Summon" />
+        <activity android:name=".kh2Skill" />
+        <activity android:name=".kh2Partner" />
+        <activity android:name=".kh2Synth" />
+        <activity android:name=".kh2Acc" />
+        <activity android:name=".kh2Keyblades" />
+        <activity android:name=".kh2Spells" />
+        <activity android:name=".kh2Summon" />
+        <activity android:name=".Drives" />
         <activity android:name=".kh1Menu" />
         <activity android:name=".kh2Menu" />
         <activity android:name=".MainActivity">
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

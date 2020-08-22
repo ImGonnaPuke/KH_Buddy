@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+
 public class kh2Menu extends AppCompatActivity {
 
     private static Button spells1;
@@ -23,6 +24,7 @@ public class kh2Menu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh2_menu);
+
 
         spells1 = (Button) findViewById(R.id.spells);
         part1 = (Button) findViewById(R.id.part);
@@ -41,7 +43,68 @@ public class kh2Menu extends AppCompatActivity {
                 startActivity(new Intent(kh2Menu.this, Drives.class));
             }
         });
+        summ1.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
 
+                //Toast toast = Toast. makeText(getApplicationContext(), "This feature is not yet avaliable", Toast. LENGTH_SHORT);
+                //toast.show();
+                startActivity(new Intent(kh2Menu.this, kh2Summon.class));
+            }
+        });
+
+        spells1.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+
+                //Toast toast = Toast. makeText(getApplicationContext(), "This feature is not yet avaliable", Toast. LENGTH_SHORT);
+                //toast.show();
+                startActivity(new Intent(kh2Menu.this, kh2Spells.class));
+            }
+        });
+
+        key1.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+
+                //Toast toast = Toast. makeText(getApplicationContext(), "This feature is not yet avaliable", Toast. LENGTH_SHORT);
+                //toast.show();
+                startActivity(new Intent(kh2Menu.this, kh2Keyblades.class));
+            }
+        });
+
+        acc1.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+
+                //Toast toast = Toast. makeText(getApplicationContext(), "This feature is not yet avaliable", Toast. LENGTH_SHORT);
+                //toast.show();
+                startActivity(new Intent(kh2Menu.this, kh2Acc.class));
+            }
+        });
+
+        synth1.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+
+                //Toast toast = Toast. makeText(getApplicationContext(), "This feature is not yet avaliable", Toast. LENGTH_SHORT);
+                //toast.show();
+                startActivity(new Intent(kh2Menu.this, kh2Synth.class));
+            }
+        });
+
+        part1.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+
+                //Toast toast = Toast. makeText(getApplicationContext(), "This feature is not yet avaliable", Toast. LENGTH_SHORT);
+                //toast.show();
+                startActivity(new Intent(kh2Menu.this, kh2Partner.class));
+            }
+        });
+
+        skill1.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+
+                //Toast toast = Toast. makeText(getApplicationContext(), "This feature is not yet avaliable", Toast. LENGTH_SHORT);
+                //toast.show();
+                startActivity(new Intent(kh2Menu.this, kh2Skill.class));
+            }
+        });
 
 
 
