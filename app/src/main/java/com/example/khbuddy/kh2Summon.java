@@ -8,6 +8,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import java.util.ArrayList;
 
 public class kh2Summon extends AppCompatActivity {
@@ -25,16 +31,26 @@ public class kh2Summon extends AppCompatActivity {
         genList();
         buildRecycle();
 
+        AdView mAdView;
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
 
 
     }
 
     public void genList(){
         driveList = new ArrayList<>();
-        driveList.add(new Items (R.drawable.valor, "Chicken Little", "After Merlin explains Pooh's book in\nHollow Bastion"));
-        driveList.add(new Items (R.drawable.wisdom, "Genie", "After the first visit to Agrabah"));
-        driveList.add(new Items (R.drawable.master, "Stitch", "Chest in Ansem's Study"));
-        driveList.add(new Items (R.drawable.valor, "Peter Pan", "Chest in the Ship Graveyard in Port Royal"));
+        driveList.add(new Items (R.drawable.chicken, "Chicken Little", "After Merlin explains Pooh's book in\nHollow Bastion"));
+        driveList.add(new Items (R.drawable.genie, "Genie", "After the first visit to Agrabah"));
+        driveList.add(new Items (R.drawable.stitch, "Stitch", "Chest in Ansem's Study"));
+        driveList.add(new Items (R.drawable.peter, "Peter Pan", "Chest in the Ship Graveyard in Port Royal"));
     }
 
     public void showItem (int position) {

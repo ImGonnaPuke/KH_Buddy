@@ -11,6 +11,12 @@ import android.view.MenuItem;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import java.util.ArrayList;
 
 public class kh1Spells extends AppCompatActivity {
@@ -20,6 +26,8 @@ public class kh1Spells extends AppCompatActivity {
     private RecAdapter mAdapter;
     private ArrayList<Items> driveList;
     private RecyclerView.LayoutManager myLayout;
+    //public static AdView mAdView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,40 +38,52 @@ public class kh1Spells extends AppCompatActivity {
         genList();
         buildRecycle();
 
+        AdView mAdView;
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
 
 
     }
 
     public void genList(){
         driveList = new ArrayList<>();
-        driveList.add(new Items (R.drawable.valor, "Fire", "Defeat Guard Armor"));
-        driveList.add(new Items (R.drawable.wisdom, "Fira", "Defeat Genie Jafar"));
-        driveList.add(new Items (R.drawable.master, "Firaga", "Speak to the Princesses in Hollow Bastion"));
+        driveList.add(new Items (R.drawable.fire, "Fire", "Defeat Guard Armor"));
+        driveList.add(new Items (R.drawable.fire, "Fira", "Defeat Genie Jafar"));
+        driveList.add(new Items (R.drawable.fire, "Firaga", "Speak to the Princesses in Hollow Bastion"));
 
-        driveList.add(new Items (R.drawable.valor, "Blizzard", "Find all evidence in Wonderland"));
-        driveList.add(new Items (R.drawable.valor, "Blizzara", "Defeat Jafar"));
-        driveList.add(new Items (R.drawable.valor, "Blizzaga", "Defeat Behemoth"));
+        driveList.add(new Items (R.drawable.ice, "Blizzard", "Find all evidence in Wonderland"));
+        driveList.add(new Items (R.drawable.ice, "Blizzara", "Defeat Jafar"));
+        driveList.add(new Items (R.drawable.ice, "Blizzaga", "Defeat Behemoth"));
 
-        driveList.add(new Items (R.drawable.valor, "Thunder", "Complete Phil's training"));
-        driveList.add(new Items (R.drawable.valor, "Thundara", "Defeat Ursula 2"));
-        driveList.add(new Items (R.drawable.valor, "Thundaga", "Defeat Cerberus in the Hades Cup"));
+        driveList.add(new Items (R.drawable.thun, "Thunder", "Complete Phil's training"));
+        driveList.add(new Items (R.drawable.thun, "Thundara", "Defeat Ursula 2"));
+        driveList.add(new Items (R.drawable.thun, "Thundaga", "Defeat Cerberus in the Hades Cup"));
 
-        driveList.add(new Items (R.drawable.valor, "Cure", "Defeat Stealth Sneak"));
-        driveList.add(new Items (R.drawable.valor, "Cura", "Confront Hook in Neverland"));
-        driveList.add(new Items (R.drawable.valor, "Curaga", "Speak to Aerith 3 times in Hollow Bastion"));
+        driveList.add(new Items (R.drawable.cure, "Cure", "Defeat Stealth Sneak"));
+        driveList.add(new Items (R.drawable.cure, "Cura", "Confront Hook in Neverland"));
+        driveList.add(new Items (R.drawable.cure, "Curaga", "Speak to Aerith 3 times in Hollow Bastion"));
 
-        driveList.add(new Items (R.drawable.valor, "Gravity", "Win the Phil Cup"));
-        driveList.add(new Items (R.drawable.valor, "Gravira", "Defeat Oogie Boogie II"));
-        driveList.add(new Items (R.drawable.valor, "Gravega", "Complete the Hades Cup"));
+        driveList.add(new Items (R.drawable.grav, "Gravity", "Win the Phil Cup"));
+        driveList.add(new Items (R.drawable.grav, "Gravira", "Defeat Oogie Boogie II"));
+        driveList.add(new Items (R.drawable.grav, "Gravega", "Complete the Hades Cup"));
 
-        driveList.add(new Items (R.drawable.valor, "Stop", "Defeat Parasite Cage"));
-        driveList.add(new Items (R.drawable.valor, "Stropra", "Page 3 of 100 Acre Wood"));
-        driveList.add(new Items (R.drawable.valor, "Stopga", "Defeat Phantom"));
+        driveList.add(new Items (R.drawable.stop, "Stop", "Defeat Parasite Cage"));
+        driveList.add(new Items (R.drawable.stop, "Stropra", "Page 3 of 100 Acre Wood"));
+        driveList.add(new Items (R.drawable.stop, "Stopga", "Defeat Phantom"));
 
-        driveList.add(new Items (R.drawable.valor, "Aero", "Defeat Opposite Armor"));
-        driveList.add(new Items (R.drawable.valor, "Aerora", "Yellow Trinity in Neverland"));
-        driveList.add(new Items (R.drawable.valor, "Aeroga", "All 99 puppies"));
+        driveList.add(new Items (R.drawable.aero, "Aero", "Defeat Opposite Armor"));
+        driveList.add(new Items (R.drawable.aero, "Aerora", "Yellow Trinity in Neverland"));
+        driveList.add(new Items (R.drawable.aero, "Aeroga", "All 99 puppies"));
 
+        driveList.add(new Items (R.drawable.emptykh1, "", ""));
 
 
 

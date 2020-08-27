@@ -11,6 +11,12 @@ import android.view.MenuItem;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import java.util.ArrayList;
 
 public class kh2Partner extends AppCompatActivity {
@@ -23,9 +29,19 @@ public class kh2Partner extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kh2_acc);
+        setContentView(R.layout.activity_kh2_partner);
         genList();
         buildRecycle();
+
+        AdView mAdView;
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
 
@@ -33,93 +49,85 @@ public class kh2Partner extends AppCompatActivity {
 
     public void genList(){
         driveList = new ArrayList<>();
-        driveList.add(new ItemsK (R.drawable.valor, "Mage Staff", "Default weapon", "Strength: +1", "Magic: +1",
+        driveList.add(new ItemsK (R.drawable.magesstaff, "Mage Staff", "Default weapon", "Strength: +1", "Magic: +1",
                 ""));
-        driveList.add(new ItemsK (R.drawable.valor, "Hammer Staff", "Wallace's Shop in Twilight Town",
+        driveList.add(new ItemsK (R.drawable.hammerkh2, "Hammer Staff", "Wallace's Shop in Twilight Town",
                 "Strength: +2", "Magic: +2", ""));
-        driveList.add(new ItemsK (R.drawable.valor, "Victory Bell", "Port Royal Moogle",
+        driveList.add(new ItemsK (R.drawable.victorybell, "Victory Bell", "Port Royal Moogle",
                 "Strength: +3", "Magic: +2", ""));
-        driveList.add(new ItemsK (R.drawable.valor, "Comet Staff", "Mt Olympus Moogle",
+        driveList.add(new ItemsK (R.drawable.cometstaffkh2, "Comet Staff", "Mt Olympus Moogle",
                 "Strength: +2", "Magic: +2", ""));
-        driveList.add(new ItemsK (R.drawable.valor, "Lord's Broom", "Pride Lands Moogle",
+        driveList.add(new ItemsK (R.drawable.lordsbroom, "Lord's Broom", "Pride Lands Moogle",
                 "Strength: +3", "Magic: +3", ""));
-        driveList.add(new ItemsK (R.drawable.valor, "Meteor Staff", "Chest in Port Royal",
+        driveList.add(new ItemsK (R.drawable.meteorkh2, "Meteor Staff", "Chest in Port Royal",
                 "Strength: +4", "Magic: +3", ""));
 
-        driveList.add(new ItemsK (R.drawable.valor, "Rising Dragon", "Win the Cerberus Cup",
+        driveList.add(new ItemsK (R.drawable.risingdragon, "Rising Dragon", "Win the Cerberus Cup",
                 "Strength: +4", "Magic: +4", "Fire Boost"));
-        driveList.add(new ItemsK (R.drawable.valor, "Shaman Relic", "Shaman Heartless (1%)",
+        driveList.add(new ItemsK (R.drawable.shamansrelic, "Shaman Relic", "Shaman Heartless (1%)",
                 "Strength: +4", "Magic: +5", "Blizard Boost"));
-        driveList.add(new ItemsK (R.drawable.valor, "Nobody Lance", "Dragoon Nobody (1%)",
+        driveList.add(new ItemsK (R.drawable.nobodylance, "Nobody Lance", "Dragoon Nobody (1%)",
                 "Strength: +5", "Magic: +5", "Item Boost"));
-        driveList.add(new ItemsK (R.drawable.valor, "Centurion", "Item Synth",
+        driveList.add(new ItemsK (R.drawable.centurion, "Centurion", "Item Synth",
                 "Strength: +13", "Magic: +3", ""));
-        driveList.add(new ItemsK (R.drawable.valor, "Save the Queen", "Item Synth",
+        driveList.add(new ItemsK (R.drawable.savethequeenkh2, "Save the Queen", "Item Synth",
                 "Strength: +5", "Magic: +6", "Hyper Healing"));
 
-        driveList.add(new ItemsK (R.drawable.valor, "Save the Queen+", "Item Synth",
+        driveList.add(new ItemsK (R.drawable.savethequeenplus, "Save the Queen+", "Item Synth",
                 "Strength: +5", "Magic: +6", "MP Rage"));
-        driveList.add(new ItemsK (R.drawable.valor, "Plain Mushroom", "Odd numbered Mushroom XIII",
+        driveList.add(new ItemsK (R.drawable.plainmushroom, "Plain Mushroom", "Odd numbered Mushroom XIII",
                 "Strength: +0", "Magic: +1", ""));
-        driveList.add(new ItemsK (R.drawable.valor, "Plain Mushroom+", "Odd numbered Mushroom XIII",
+        driveList.add(new ItemsK (R.drawable.plainmushroomplus, "Plain Mushroom+", "Odd numbered Mushroom XIII",
                 "Strength: +0", "Magic: +3", ""));
-        driveList.add(new ItemsK (R.drawable.valor, "Precious Mushroom", "Odd numbered Mushroom XIII",
+        driveList.add(new ItemsK (R.drawable.preciousmushroom, "Precious Mushroom", "Odd numbered Mushroom XIII",
                 "Strength: +1", "Magic: +5", "MP Haste"));
-        driveList.add(new ItemsK (R.drawable.valor, "Precious Mushroom+", "Odd numbered Mushroom XIII",
+        driveList.add(new ItemsK (R.drawable.preciousmushroomplus, "Precious Mushroom+", "Odd numbered Mushroom XIII",
                 "Strength: +2", "Magic: +7", "MP Hastera"));
-        driveList.add(new ItemsK (R.drawable.valor, "Premium Mushroom", "Odd numbered Mushroom XIII",
+        driveList.add(new ItemsK (R.drawable.premiummushroom, "Premium Mushroom", "Odd numbered Mushroom XIII",
                 "Strength: +3", "Magic: +9", "MP Hastega"));
 
-        driveList.add(new ItemsK (R.drawable.valor, "Knight's Shield", "Default weapon",
+        driveList.add(new ItemsK (R.drawable.knightsshield, "Knight's Shield", "Default weapon",
                 "Strength: +1", "Magic: +0", ""));
-        driveList.add(new ItemsK (R.drawable.valor, "Knight's Shield", "Default weapon",
-                "Strength: +1", "Magic: +0", ""));
-        driveList.add(new ItemsK (R.drawable.valor, "Knight's Shield", "Default weapon",
-                "Strength: +1", "Magic: +0", ""));
-        driveList.add(new ItemsK (R.drawable.valor, "Knight's Shield", "Default weapon",
-                "Strength: +1", "Magic: +0", ""));
-        driveList.add(new ItemsK (R.drawable.valor, "Knight's Shield", "Default weapon",
-                "Strength: +1", "Magic: +0", ""));
-
-        driveList.add(new ItemsK (R.drawable.valor, "Knight's Shield", "Default weapon",
-                "Strength: +1", "Magic: +0", ""));
-        driveList.add(new ItemsK (R.drawable.valor, "Adamant Shield", "Shop in Twilight Town",
+        driveList.add(new ItemsK (R.drawable.adamantshieldkh2, "Adamant Shield", "Shop in Twilight Town",
                 "Strength: +2", "Magic: +0", ""));
-        driveList.add(new ItemsK (R.drawable.valor, "Chain Gear", "Moogle shop in Port Royal",
+        driveList.add(new ItemsK (R.drawable.chaingearkh2, "Chain Gear", "Moogle shop in Port Royal",
                 "Strength: +3", "Magic: +0", ""));
-        driveList.add(new ItemsK (R.drawable.valor, "Falling Star", "Moogle shop in Mt Olympus",
+        driveList.add(new ItemsK (R.drawable.fallingstar, "Falling Star", "Moogle shop in Mt Olympus",
                 "Strength: +3", "Magic: +0", ""));
-        driveList.add(new ItemsK (R.drawable.valor, "Dreamcloud", "Moogle shop in Pride Lands",
+        driveList.add(new ItemsK (R.drawable.dreamcloud, "Dreamcloud", "Moogle shop in Pride Lands",
                 "Strength: +4", "Magic: +0", ""));
 
-        driveList.add(new ItemsK (R.drawable.valor, "Knight Defender", "Moogle shop in the World that Never Was",
+        driveList.add(new ItemsK (R.drawable.knightdefenderkh2, "Knight Defender", "Moogle shop in the World that Never Was",
                 "Strength: +7", "Magic: +0", ""));
-        driveList.add(new ItemsK (R.drawable.valor, "Ogre Shield", "Chest in the Land of Dragons",
+        driveList.add(new ItemsK (R.drawable.ogreshieldkh2, "Ogre Shield", "Chest in the Land of Dragons",
                 "Strength: +5", "Magic: +0", "Defender"));
-        driveList.add(new ItemsK (R.drawable.valor, "Akashic Record", "Bookmaster Heartless (1%)",
+        driveList.add(new ItemsK (R.drawable.akashicrecord, "Akashic Record", "Bookmaster Heartless (1%)",
                 "Strength: +7", "Magic: +0", "MP Haste"));
-        driveList.add(new ItemsK (R.drawable.valor, "Nobody Guard", "Gambler Nobody (1%)",
+        driveList.add(new ItemsK (R.drawable.nobodyguard, "Nobody Guard", "Gambler Nobody (1%)",
                 "Strength: +8", "Magic: +0", ""));
-        driveList.add(new ItemsK (R.drawable.valor, "Frozen Pride", "Item Synth",
+        driveList.add(new ItemsK (R.drawable.frozenpride, "Frozen Pride", "Item Synth",
                 "Strength: +5", "Magic: +0", ""));
 
-        driveList.add(new ItemsK (R.drawable.valor, "Frozen Pride+", "Item Synth",
+        driveList.add(new ItemsK (R.drawable.frozenprideplus, "Frozen Pride+", "Item Synth",
                 "Strength: +5", "Magic: +0", "MP Hastega"));
-        driveList.add(new ItemsK (R.drawable.valor, "Save the King", "Item Synth",
+        driveList.add(new ItemsK (R.drawable.savethekingkh2, "Save the King", "Item Synth",
                 "Strength: +9", "Magic: +0", "Item Boost"));
-        driveList.add(new ItemsK (R.drawable.valor, "Save the King+", "Item Synth",
+        driveList.add(new ItemsK (R.drawable.savethekingplus, "Save the King+", "Item Synth",
                 "Strength: +9", "Magic: +0", "Damage Control"));
 
-        driveList.add(new ItemsK (R.drawable.valor, "Joyous Mushroom", "Even numbered Mushroom XIII",
+        driveList.add(new ItemsK (R.drawable.joyousmushroom, "Joyous Mushroom", "Even numbered Mushroom XIII",
                 "Strength: +1", "Magic: +0", ""));
-        driveList.add(new ItemsK (R.drawable.valor, "Joyous Mushroom+", "Even numbered Mushroom XIII",
+        driveList.add(new ItemsK (R.drawable.joyousmushroomplus, "Joyous Mushroom+", "Even numbered Mushroom XIII",
                 "Strength: +3", "Magic: +0", ""));
-        driveList.add(new ItemsK (R.drawable.valor, "Majestic Mushroom", "Even numbered Mushroom XIII",
+        driveList.add(new ItemsK (R.drawable.majesticmushroom, "Majestic Mushroom", "Even numbered Mushroom XIII",
                 "Strength: +5", "Magic: +0", "Protect"));
-        driveList.add(new ItemsK (R.drawable.valor, "Majestic Mushroom", "Even numbered Mushroom XIII",
+        driveList.add(new ItemsK (R.drawable.majesticmushroomplus, "Majestic Mushroom+", "Even numbered Mushroom XIII",
                 "Strength: +7", "Magic: +0", "Protectera"));
-        driveList.add(new ItemsK (R.drawable.valor, "Ultimate Mushroom", "Even numbered Mushroom XIII",
+        driveList.add(new ItemsK (R.drawable.ultimatemushroom, "Ultimate Mushroom", "Even numbered Mushroom XIII",
                 "Strength: +9", "Magic: +0", "Protectega"));
+
+        driveList.add(new ItemsK (R.drawable.emptykh2, "", "", "",
+                "", ""));
     }
 
     public void showItem (int position) {

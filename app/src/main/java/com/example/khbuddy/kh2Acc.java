@@ -11,6 +11,12 @@ import android.view.MenuItem;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import java.util.ArrayList;
 
 public class kh2Acc extends AppCompatActivity {
@@ -27,82 +33,96 @@ public class kh2Acc extends AppCompatActivity {
         genList();
         buildRecycle();
 
+        AdView mAdView;
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
 
 
     }
 
     public void genList(){
         driveList = new ArrayList<>();
-        driveList.add(new ItemsK (R.drawable.valor, "Ability Ring", "Jesse's Accessory Shop", "AP: +1", "Str: +0",
+        driveList.add(new ItemsK (R.drawable.abilityring, "Ability Ring", "Jesse's Accessory Shop", "AP: +1", "Str: +0",
                 "Mag: + 0"));
-        driveList.add(new ItemsK (R.drawable.valor, "Aquamarine Ring", "Gumo's and Artemicion's Moogle Shops", "AP: +3", "Str: +1",
+        driveList.add(new ItemsK (R.drawable.aqua, "Aquamarine Ring", "Gumo's and Artemicion's Moogle Shops", "AP: +3", "Str: +1",
                 "Mag: + 0"));
-        driveList.add(new ItemsK (R.drawable.valor, "Cosmic Arts", "Chest at the Central Computer Mesa", "AP: +7", "Str: +2",
+        driveList.add(new ItemsK (R.drawable.cosmicarts, "Cosmic Arts", "Chest at the Central Computer Mesa", "AP: +7", "Str: +2",
                 "Mag: + 2"));
 
-        driveList.add(new ItemsK (R.drawable.valor, "Cosmic Ring", "Chest at the Starry Hill", "AP: +8", "Str: +0",
+        driveList.add(new ItemsK (R.drawable.cosmicring, "Cosmic Ring", "Chest at the Starry Hill", "AP: +8", "Str: +0",
                 "Mag: + 0"));
-        driveList.add(new ItemsK (R.drawable.valor, "Diamond Ring", "Item synthesis", "AP: +5", "Str: +1",
+        driveList.add(new ItemsK (R.drawable.diamond, "Diamond Ring", "Item synthesis", "AP: +5", "Str: +1",
                 "Mag: + 0"));
-        driveList.add(new ItemsK (R.drawable.valor, "Draw Ring", "Chest at Rabbit's House", "AP: +7", "Str: +0",
+        driveList.add(new ItemsK (R.drawable.drawring, "Draw Ring", "Chest at Rabbit's House", "AP: +7", "Str: +0",
                 "Mag: + 0\t\t\t\t\t\t\t\t\t\t\t\tGrants Draw"));
-        driveList.add(new ItemsK (R.drawable.valor, "Engineer's Ring", "Can be bought at Mogatro's and Gumo's\nMoogle Shops", "AP: +2", "Str: +0",
+        driveList.add(new ItemsK (R.drawable.engring, "Engineer's Ring", "Can be bought at Mogatro's and Gumo's\nMoogle Shops", "AP: +2", "Str: +0",
                 "Mag: + 0"));
-        driveList.add(new ItemsK (R.drawable.valor, "Expert's Ring", "Item synth", "AP: +6", "Str: +0",
+        driveList.add(new ItemsK (R.drawable.expertring, "Expert's Ring", "Item synth", "AP: +6", "Str: +0",
                 "Mag: + 0"));
-        driveList.add(new ItemsK (R.drawable.valor, "Fencer's Earring", "Item synth", "AP: +5", "Str: +2",
+        driveList.add(new ItemsK (R.drawable.fencering, "Fencer's Earring", "Item synth", "AP: +5", "Str: +2",
                 "Mag: + 1"));
 
-        driveList.add(new ItemsK (R.drawable.valor, "Garnet Ring", "Item synth", "AP: +4", "Str: +1",
+        driveList.add(new ItemsK (R.drawable.garn, "Garnet Ring", "Item Synth", "AP: +4", "Str: +1",
                 "Mag: + 0"));
-        driveList.add(new ItemsK (R.drawable.valor, "Gold Ring", "Can be bought from Mogtaro's\nMoogle Shop", "AP: +2", "Str: +0",
+        driveList.add(new ItemsK (R.drawable.goldring, "Gold Ring", "Can be bought from Mogtaro's\nMoogle Shop", "AP: +2", "Str: +0",
                 "Mag: + 1"));
-        driveList.add(new ItemsK (R.drawable.valor, "Lucky Ring", "Complete the Pain and Panic Cup", "AP: +0", "Str: +0",
+        driveList.add(new ItemsK (R.drawable.luckyring, "Lucky Ring", "Complete the Pain and Panic Cup", "AP: +0", "Str: +0",
                 "Mag: + 0\t\t\t\t\t\t\t\t\t\t\t\tGrants Lucky Lucky"));
-        driveList.add(new ItemsK (R.drawable.valor, "Mage Earring", "Item synth", "AP: +4", "Str: + 0",
+        driveList.add(new ItemsK (R.drawable.magering, "Mage Earring", "Item synth", "AP: +4", "Str: + 0",
                 "Mag: + 2"));
-        driveList.add(new ItemsK (R.drawable.valor, "Executive's Ring", "Complete the Dawn Puzzle", "AP: + 30", "Str: + 0",
+        driveList.add(new ItemsK (R.drawable.executive, "Executive's Ring", "Complete the Dawn Puzzle", "AP: + 30", "Str: + 0",
                 "Mag: + 0"));
 
-        driveList.add(new ItemsK (R.drawable.valor, "Medal", "Lose to Setzer", "AP: +0", "Str: + 1",
+        driveList.add(new ItemsK (R.drawable.medal, "Medal", "Lose to Setzer", "AP: +0", "Str: + 1",
                 "Mag: + 0"));
-        driveList.add(new ItemsK (R.drawable.valor, "Moon Amulet", "Item Synth", "AP: + 3", "Str: + 2",
+        driveList.add(new ItemsK (R.drawable.moonam, "Moon Amulet", "Item Synth", "AP: + 3", "Str: + 2",
                 "Mag: + 2"));
-        driveList.add(new ItemsK (R.drawable.valor, "Mythril Ring", "Item Synth", "AP: + 4", "Str: + 0",
+        driveList.add(new ItemsK (R.drawable.mythring, "Mythril Ring", "Item Synth", "AP: + 4", "Str: + 0",
                 "Mag: + 1"));
-        driveList.add(new ItemsK (R.drawable.valor, "Orichalcum Ring", "Item Synth", "AP: + 5", "Str: + 0",
+        driveList.add(new ItemsK (R.drawable.orichalring, "Orichalcum Ring", "Item Synth", "AP: + 5", "Str: + 0",
                 "Mag: + 1"));
-        driveList.add(new ItemsK (R.drawable.valor, "Platinum Ring", "Can be bought from Gumo's and\nArtemicion's Moogle Shops", "AP: + 1", "Str: + 1",
+        driveList.add(new ItemsK (R.drawable.platring, "Platinum Ring", "Can be bought from Gumo's and\nArtemicion's Moogle Shops", "AP: + 1", "Str: + 1",
                 "Mag: + 1"));
 
-        driveList.add(new ItemsK (R.drawable.valor, "Sardonyx Ring", "Can be bought from Monty's Moogle Shop", "AP: + 0", "Str: + 0",
+        driveList.add(new ItemsK (R.drawable.sard, "Sardonyx Ring", "Can be bought from Monty's Moogle Shop", "AP: + 0", "Str: + 0",
                 "Mag: + 0"));
-        driveList.add(new ItemsK (R.drawable.valor, "Silver Ring", "Can be bought from Monty's Moogle Shop", "AP: + 1", "Str: + 0",
+        driveList.add(new ItemsK (R.drawable.silverring, "Silver Ring", "Can be bought from Monty's Moogle Shop", "AP: + 1", "Str: + 0",
                 "Mag: + 1"));
-        driveList.add(new ItemsK (R.drawable.valor, "Star Charm", "Item Synth", "AP: + 5", "Str: + 2",
+        driveList.add(new ItemsK (R.drawable.starcharm, "Star Charm", "Item Synth", "AP: + 5", "Str: + 2",
                 "Mag: + 2"));
-        driveList.add(new ItemsK (R.drawable.valor, "Skill Ring", "Can be obtained from a chest at the\nPalace Walls", "AP: + 4", "Str: + 0",
+        driveList.add(new ItemsK (R.drawable.skillring, "Skill Ring", "Can be obtained from a chest at the\nPalace Walls", "AP: + 4", "Str: + 0",
                 "Mag: + 0"));
-        driveList.add(new ItemsK (R.drawable.valor, "Skillful Ring", "Can be obtained by completing the\nTitan Cup", "AP: + 5", "Str: + 0",
+        driveList.add(new ItemsK (R.drawable.skillfulring, "Skillful Ring", "Can be obtained by completing the\nTitan Cup", "AP: + 5", "Str: + 0",
                 "Mag: + 0"));
 
-        driveList.add(new ItemsK (R.drawable.valor, "Slayer Earring", "Item Synth", "AP: + 5", "Str: + 1",
+        driveList.add(new ItemsK (R.drawable.slayer, "Slayer Earring", "Item Synth", "AP: + 5", "Str: + 1",
                 "Mag: + 2"));
-        driveList.add(new ItemsK (R.drawable.valor, "Soldier Earring", "Item Synth", "AP: + 4", "Str: + 2",
+        driveList.add(new ItemsK (R.drawable.soldering, "Soldier Earring", "Item Synth", "AP: + 4", "Str: + 2",
                 "Mag: + 0"));
-        driveList.add(new ItemsK (R.drawable.valor, "Technician's Ring", "Item Synth", "AP: + 3", "Str: + 0",
+        driveList.add(new ItemsK (R.drawable.techring, "Technician's Ring", "Item Synth", "AP: + 3", "Str: + 0",
                 "Mag: + 0"));
-        driveList.add(new ItemsK (R.drawable.valor, "Tourmaline Ring", "Item Synth", "AP: + 2", "Str: + 1",
+        driveList.add(new ItemsK (R.drawable.tour, "Tourmaline Ring", "Item Synth", "AP: + 2", "Str: + 1",
                 "Mag: + 0"));
-        driveList.add(new ItemsK (R.drawable.valor, "Full Bloom", "Item Synth", "AP: + 5", "Str: + 0",
+        driveList.add(new ItemsK (R.drawable.fullbloom, "Full Bloom", "Item Synth", "AP: + 5", "Str: + 0",
                 "Mag: + 3"));
 
-        driveList.add(new ItemsK (R.drawable.valor, "Full Bloom+", "Item Synth", "AP: + 5", "Str: + 0",
+        driveList.add(new ItemsK (R.drawable.fullbloomplus, "Full Bloom+", "Item Synth", "AP: + 5", "Str: + 0",
                 "Mag: + 3\t\t\t\t\t\t\t\t\t\t\t\t Grants MP Haste"));
-        driveList.add(new ItemsK (R.drawable.valor, "Shadow Archive", "Item Synth", "AP: + 5", "Str: + 0",
+        driveList.add(new ItemsK (R.drawable.sarchive, "Shadow Archive", "Item Synth", "AP: + 5", "Str: + 0",
                 "Mag: + 3"));
-        driveList.add(new ItemsK (R.drawable.valor, "Shadow Archive+", "Item Synth", "AP: + 5", "Str: + 0",
+        driveList.add(new ItemsK (R.drawable.sarchiveplus, "Shadow Archive+", "Item Synth", "AP: + 5", "Str: + 0",
                 "Mag: + 3\t\t\t\t\t\t\t\t\t\t\t\tGrants MP Rage"));
+
+        driveList.add(new ItemsK (R.drawable.emptykh2, "", "", "",
+                "", ""));
 
 
     }

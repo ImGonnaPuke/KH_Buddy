@@ -7,6 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 
 public class kh2Menu extends AppCompatActivity {
 
@@ -18,12 +24,16 @@ public class kh2Menu extends AppCompatActivity {
     private static Button skill1;
     private static Button synth1;
     private static Button summ1;
+    private static Button arm1;
+    public static AdView mAdView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh2_menu);
+
+
 
 
         spells1 = (Button) findViewById(R.id.spells);
@@ -34,6 +44,18 @@ public class kh2Menu extends AppCompatActivity {
         skill1 = (Button) findViewById(R.id.skill);
         synth1 = (Button) findViewById(R.id.syth);
         summ1 = (Button) findViewById(R.id.summ);
+        arm1 = (Button) findViewById(R.id.arm);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
 
         drive1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -103,6 +125,15 @@ public class kh2Menu extends AppCompatActivity {
                 //Toast toast = Toast. makeText(getApplicationContext(), "This feature is not yet avaliable", Toast. LENGTH_SHORT);
                 //toast.show();
                 startActivity(new Intent(kh2Menu.this, kh2Skill.class));
+            }
+        });
+
+        arm1.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+
+                //Toast toast = Toast. makeText(getApplicationContext(), "This feature is not yet avaliable", Toast. LENGTH_SHORT);
+                //toast.show();
+                startActivity(new Intent(kh2Menu.this, kh2Armor.class));
             }
         });
 

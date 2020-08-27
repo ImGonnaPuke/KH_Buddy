@@ -7,6 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import java.util.ArrayList;
 
 public class kh1Summon extends AppCompatActivity {
@@ -24,19 +30,30 @@ public class kh1Summon extends AppCompatActivity {
         genList();
         buildRecycle();
 
+        AdView mAdView;
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
 
 
     }
 
     public void genList(){
         driveList = new ArrayList<>();
-        driveList.add(new Items (R.drawable.valor, "Simba", "Eathshine Gem from Leon in the Secret\nWaterway"));
-        driveList.add(new Items (R.drawable.wisdom, "Genie", "Complete Agrabah"));
-        driveList.add(new Items (R.drawable.master, "Dumbo", "Chest in Monstro's Mouth"));
-        driveList.add(new Items (R.drawable.valor, "Tinker Bell", "Complete Neverland"));
-        driveList.add(new Items (R.drawable.valor, "Mushu", "Defeat Dragon Maleficent"));
+        driveList.add(new Items (R.drawable.simba, "Simba", "Eathshine Gem from Leon in the Secret\nWaterway"));
+        driveList.add(new Items (R.drawable.genie, "Genie", "Complete Agrabah"));
+        driveList.add(new Items (R.drawable.dumbo, "Dumbo", "Chest in Monstro's Mouth"));
+        driveList.add(new Items (R.drawable.tink, "Tinker Bell", "Complete Neverland"));
+        driveList.add(new Items (R.drawable.mushu, "Mushu", "Defeat Dragon Maleficent"));
 
-        driveList.add(new Items (R.drawable.valor, "Bambi", "Complete the Hunny Tree minigame"));
+        driveList.add(new Items (R.drawable.bambi, "Bambi", "Complete the Hunny Tree minigame"));
     }
 
     public void showItem (int position) {

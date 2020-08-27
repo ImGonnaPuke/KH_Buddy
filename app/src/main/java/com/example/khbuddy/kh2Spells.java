@@ -11,6 +11,12 @@ import android.view.MenuItem;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import java.util.ArrayList;
 
 public class kh2Spells extends AppCompatActivity {
@@ -31,34 +37,47 @@ public class kh2Spells extends AppCompatActivity {
         buildRecycle();
 
 
+        AdView mAdView;
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
 
     }
 
     public void genList(){
         driveList = new ArrayList<>();
-        driveList.add(new Items (R.drawable.valor, "Fire", "Defend the Bailey in Hollow Bastion"));
-        driveList.add(new Items (R.drawable.wisdom, "Fira", "Upon defeating Scar in the Pride Lands"));
-        driveList.add(new Items (R.drawable.master, "Firaga", "Upon defeating Jafar in Agrabah"));
+        driveList.add(new Items (R.drawable.fire, "Fire", "Defend the Bailey in Hollow Bastion"));
+        driveList.add(new Items (R.drawable.fire, "Fira", "Upon defeating Scar in the Pride Lands"));
+        driveList.add(new Items (R.drawable.fire, "Firaga", "Upon defeating Jafar in Agrabah"));
 
-        driveList.add(new Items (R.drawable.valor, "Blizzard", "Defend the Bailey in Hollow Bastion"));
-        driveList.add(new Items (R.drawable.valor, "Blizzara", "Upon defeating Demyx before the\nbattle of 1000 heartless"));
-        driveList.add(new Items (R.drawable.valor, "Blizzaga", "Finish Atlantica"));
+        driveList.add(new Items (R.drawable.ice, "Blizzard", "Defend the Bailey in Hollow Bastion"));
+        driveList.add(new Items (R.drawable.ice, "Blizzara", "Upon defeating Demyx before the\nbattle of 1000 heartless"));
+        driveList.add(new Items (R.drawable.ice, "Blizzaga", "Finish Atlantica"));
 
-        driveList.add(new Items (R.drawable.valor, "Thunder", "Upon defeating the Hydra in\nMount Olympus"));
-        driveList.add(new Items (R.drawable.valor, "Thundara", "Upon defeating Storm Rider\nin the Land of Dragons"));
-        driveList.add(new Items (R.drawable.valor, "Thundaga", "Upon defeating Groundshaker\nin the Pride Lands"));
+        driveList.add(new Items (R.drawable.thun, "Thunder", "Upon defeating the Hydra in\nMount Olympus"));
+        driveList.add(new Items (R.drawable.thun, "Thundara", "Upon defeating Storm Rider\nin the Land of Dragons"));
+        driveList.add(new Items (R.drawable.thun, "Thundaga", "Upon defeating Groundshaker\nin the Pride Lands"));
 
-        driveList.add(new Items (R.drawable.valor, "Cure", "Upon defeating Dark Thorn"));
-        driveList.add(new Items (R.drawable.valor, "Cura", "Right before the battle of\n1000 heartless"));
-        driveList.add(new Items (R.drawable.valor, "Curaga", "Complete 100 Acre Wood"));
+        driveList.add(new Items (R.drawable.cure, "Cure", "Upon defeating Dark Thorn"));
+        driveList.add(new Items (R.drawable.cure, "Cura", "Right before the battle of\n1000 heartless"));
+        driveList.add(new Items (R.drawable.cure, "Curaga", "Complete 100 Acre Wood"));
 
-        driveList.add(new Items (R.drawable.valor, "Reflect", "Upon defeating Pete in Mount\nOlympus"));
-        driveList.add(new Items (R.drawable.valor, "Reflera", "Upon defeating Xaldin at Beast's\nCastle"));
-        driveList.add(new Items (R.drawable.valor, "Reflectaga", "Upon defeating the MCP"));
+        driveList.add(new Items (R.drawable.reflect, "Reflect", "Upon defeating Pete in Mount\nOlympus"));
+        driveList.add(new Items (R.drawable.reflect, "Reflera", "Upon defeating Xaldin at Beast's\nCastle"));
+        driveList.add(new Items (R.drawable.reflect, "Reflectaga", "Upon defeating the MCP"));
 
-        driveList.add(new Items (R.drawable.valor, "Magnet", "Upon defeating Oogie Boogie"));
-        driveList.add(new Items (R.drawable.valor, "Magnera", "Upon defeating the Grim Reaper in\nPort Royal"));
-        driveList.add(new Items (R.drawable.valor, "Magnega", "Upon defeating Xigbar in the World\nthat Never Was"));
+        driveList.add(new Items (R.drawable.magnet, "Magnet", "Upon defeating Oogie Boogie"));
+        driveList.add(new Items (R.drawable.magnet, "Magnera", "Upon defeating the Grim Reaper in\nPort Royal"));
+        driveList.add(new Items (R.drawable.magnet, "Magnega", "Upon defeating Xigbar in the World\nthat Never Was"));
+
+        driveList.add(new Items (R.drawable.emptykh2, "", ""));
+
 
 
 
