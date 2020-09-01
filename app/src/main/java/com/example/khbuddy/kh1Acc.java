@@ -29,7 +29,7 @@ public class kh1Acc extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kh1_acc);
+        setContentView(R.layout.activity_kh1_dal);
         genList();
         buildRecycle();
 
@@ -91,9 +91,9 @@ public class kh1Acc extends AppCompatActivity {
 
         driveList.add(new ItemsK (R.drawable.platring, "EXP Ring", "Finish 100 Acre Wood", "AP: +1 \t\t\tHP: +0\t\t\tDef: +0",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 0%\t\t\tEXP: +20%"));
-        driveList.add(new ItemsK (R.drawable.fbangle, "Fire Ring", "Accessory Shop, chest in Agrabah, on Alladin and Jack", "AP: +0 \t\t\tHP: +0\t\t\tDef: +1",
+        driveList.add(new ItemsK (R.drawable.fbangle, "Fire Ring", "Accessory Shop, chest in Agrabah,\non Alladin and Jack", "AP: +0 \t\t\tHP: +0\t\t\tDef: +1",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 20%\nElec Res: 0%\t\t\tDark Res: 0%"));
-        driveList.add(new ItemsK (R.drawable.firabangle, "Fira Ring", "Accessory Shop, chest in Hollow Bastion, Red Nocturne (.5%)", "AP: +0 \t\t\tHP: +0\t\t\tDef: +2",
+        driveList.add(new ItemsK (R.drawable.firabangle, "Fira Ring", "Accessory Shop, chest in Hollow Bastion,\nRed Nocturne (.5%)", "AP: +0 \t\t\tHP: +0\t\t\tDef: +2",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 20%\nElec Res: 0%\t\t\tDark Res: 0%"));
         driveList.add(new ItemsK (R.drawable.fagabang, "Firaga Ring", "Accessory Shop, Fat Bandit (1%)", "AP: +0 \t\t\tHP: +0\t\t\tDef: +3",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 20%\nElec Res: 0%\t\t\tDark Res: 0%"));
@@ -123,7 +123,7 @@ public class kh1Acc extends AppCompatActivity {
                 "Str: +0", "MP: +1 \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 0%"));
 
 
-        driveList.add(new ItemsK (R.drawable.emptykh1, "Moogle Band", "Item Synth", "AP: +2 \t\t\tHP: +6\t\t\tDef: +0",
+        driveList.add(new ItemsK (R.drawable.pribb, "Moogle Band", "Item Synth", "AP: +2 \t\t\tHP: +6\t\t\tDef: +0",
                 "Str: +0", "MP: +1 \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 0%"));
         driveList.add(new ItemsK (R.drawable.orichalring, "Obsidian Ring", "Accessory Shop", "AP: +0 \t\t\tHP: +0\t\t\tDef: +0",
                 "Str: +1", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 20%"));
@@ -131,10 +131,10 @@ public class kh1Acc extends AppCompatActivity {
                 "Str: +3", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 0%"));
         driveList.add(new ItemsK (R.drawable.pband, "Power Chain", "Item Synth", "AP: +0 \t\t\tHP: +0\t\t\tDef: +0",
                 "Str: +2", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 0%"));
-        driveList.add(new ItemsK (R.drawable.probelt, "Protect Chain", "Accessory Shop, chest at Destiny Islands, Deep Jungle\nSoldier(1%), Alladin, Jack, Ariel and Peter", "AP: +0 \t\t\tHP: +0\t\t\tDef: +1",
+        driveList.add(new ItemsK (R.drawable.probelt, "Protect Chain", "Accessory Shop, chest at Destiny Islands,\nDeep Jungle Soldier(1%), most partners", "AP: +0 \t\t\tHP: +0\t\t\tDef: +1",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 0%"));
 
-        driveList.add(new ItemsK (R.drawable.probelt, "Protectera Chain", "Accessory Shop, chests in Agrabah and Neverland, \n Bandit (.5%), Bouncywild (1%), Green Reqiem (.5%), Large Body(1%),\nPowerwild(.5%) ", "AP: +0 \t\t\tHP: +0\t\t\tDef: +3",
+        driveList.add(new ItemsK (R.drawable.probelt, "Protectera Chain", "Accessory Shop, chests in Agrabah and\nNeverland, dropped by some enemies", "AP: +0 \t\t\tHP: +0\t\t\tDef: +3",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 0%"));
         driveList.add(new ItemsK (R.drawable.probelt, "Protectega Chain", "Acessory Shop", "AP: +0 \t\t\tHP: +0\t\t\tDef: +3",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 0%"));
@@ -145,7 +145,7 @@ public class kh1Acc extends AppCompatActivity {
         driveList.add(new ItemsK (R.drawable.pribb, "Ray of Light", "Agrabah - Pot Centipede", "AP: +0 \t\t\tHP: +3\t\t\tDef: +0",
                 "Str: +0", "MP: +1 \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 0%"));
 
-        driveList.add(new ItemsK (R.drawable.ribb, "Ribbon", "Item Synth, 90 Dalmations, default in Beginner", "AP: +0 \t\t\tHP: +0\t\t\tDef: +3",
+        driveList.add(new ItemsK (R.drawable.ribb, "Ribbon", "Item Synth, 90 Dalmations,\ndefault in Beginner", "AP: +0 \t\t\tHP: +0\t\t\tDef: +3",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 20%\t\t\tFire Res: 20%\nElec Res: 20%\t\t\tDark Res: 20%"));
         driveList.add(new ItemsK (R.drawable.executive, "Royal Crown", "Chest in Hollow Bastion", "AP: +0 \t\t\tHP: +0\t\t\tDef: +0",
                 "Str: -2", "MP: +2 \t\t\tIce Res: 20%\t\t\tFire Res: 20%\nElec Res: 20%\t\t\tDark Res: 0%"));
@@ -160,9 +160,10 @@ public class kh1Acc extends AppCompatActivity {
 
         driveList.add(new ItemsK (R.drawable.ttrink, "Thunder Ring", "Accessory Shop, chest in Agrabah, Ariel", "AP: +0 \t\t\tHP: +0\t\t\tDef: +1",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 20%\t\t\tDark Res: 0%"));
-        driveList.add(new ItemsK (R.drawable.taratrink, "Thundara Ring", "Accessory Shop, chest in Hollow Bastion, Yellow Opera (.5%)", "AP: +0 \t\t\tHP: +0\t\t\tDef: +2",
+        driveList.add(new ItemsK (R.drawable.taratrink, "Thundara Ring", "Accessory Shop, chest in Hollow Bastion,\n" +
+                "Yellow Opera (.5%)", "AP: +0 \t\t\tHP: +0\t\t\tDef: +2",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 20%\t\t\tDark Res: 0%"));
-        driveList.add(new ItemsK (R.drawable.tagatrink, "Thundaga Ring", "Accessory Shop, Aquatank(1%), Screwdriver(.2%),", "AP: +0 \t\t\tHP: +0\t\t\tDef: +3",
+        driveList.add(new ItemsK (R.drawable.tagatrink, "Thundaga Ring", "Accessory Shop, Aquatank(1%),\nScrewdriver(.2%),", "AP: +0 \t\t\tHP: +0\t\t\tDef: +3",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 20%\t\t\tDark Res: 0%"));
         driveList.add(new ItemsK (R.drawable.tguntrink, "Thundagun Ring", "Accessory Shop", "AP: +0 \t\t\tHP: +0\t\t\tDef: +2",
                 "Str: +2", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 20%\t\t\tDark Res: 0%"));

@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".kh2Armor"></activity>
+        <activity android:name=".kh2Puzz" />
+        <activity android:name=".kh1Dal" />
+        <activity android:name=".kh2Armor" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"

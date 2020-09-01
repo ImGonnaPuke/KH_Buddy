@@ -25,6 +25,7 @@ public class kh2Menu extends AppCompatActivity {
     private static Button synth1;
     private static Button summ1;
     private static Button arm1;
+    private static Button puzz1;
     public static AdView mAdView;
 
 
@@ -45,6 +46,7 @@ public class kh2Menu extends AppCompatActivity {
         synth1 = (Button) findViewById(R.id.syth);
         summ1 = (Button) findViewById(R.id.summ);
         arm1 = (Button) findViewById(R.id.arm);
+        puzz1 = (Button) findViewById(R.id.puzz);
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -63,6 +65,14 @@ public class kh2Menu extends AppCompatActivity {
                 //Toast toast = Toast. makeText(getApplicationContext(), "This feature is not yet avaliable", Toast. LENGTH_SHORT);
                 //toast.show();
                 startActivity(new Intent(kh2Menu.this, Drives.class));
+            }
+        });
+        puzz1.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+
+                //Toast toast = Toast. makeText(getApplicationContext(), "This feature is not yet avaliable", Toast. LENGTH_SHORT);
+                //toast.show();
+                startActivity(new Intent(kh2Menu.this, kh2Puzz.class));
             }
         });
         summ1.setOnClickListener(new View.OnClickListener(){

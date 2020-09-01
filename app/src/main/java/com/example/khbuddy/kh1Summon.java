@@ -25,7 +25,7 @@ public class kh1Summon extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kh1_summon);
+        setContentView(R.layout.activity_kh1_dal);
 
         genList();
         buildRecycle();
@@ -54,6 +54,8 @@ public class kh1Summon extends AppCompatActivity {
         driveList.add(new Items (R.drawable.mushu, "Mushu", "Defeat Dragon Maleficent"));
 
         driveList.add(new Items (R.drawable.bambi, "Bambi", "Complete the Hunny Tree minigame"));
+        driveList.add(new Items (R.drawable.emptykh1, "", ""));
+
     }
 
     public void showItem (int position) {

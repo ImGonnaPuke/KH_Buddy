@@ -13,6 +13,8 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
+import static com.example.khbuddy.kh2Menu.mAdView;
+
 public class kh1Menu extends AppCompatActivity {
 
     private static Button spells1;
@@ -23,6 +25,7 @@ public class kh1Menu extends AppCompatActivity {
     private static Button skill1;
     private static Button synth1;
     private static Button summ1;
+    private static Button dal1;
 
 
     @Override
@@ -39,6 +42,7 @@ public class kh1Menu extends AppCompatActivity {
         skill1 = (Button) findViewById(R.id.skill);
         synth1 = (Button) findViewById(R.id.syth);
         summ1 = (Button) findViewById(R.id.summ);
+        dal1 = (Button) findViewById(R.id.dal);
 
         AdView mAdView;
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
@@ -56,6 +60,15 @@ public class kh1Menu extends AppCompatActivity {
                 //Toast toast = Toast. makeText(getApplicationContext(), "This feature is not yet avaliable", Toast. LENGTH_SHORT);
                 //toast.show();
                 startActivity(new Intent(kh1Menu.this, kh1Summon.class));
+            }
+        });
+
+        dal1.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+
+                //Toast toast = Toast. makeText(getApplicationContext(), "This feature is not yet avaliable", Toast. LENGTH_SHORT);
+                //toast.show();
+                startActivity(new Intent(kh1Menu.this, kh1Dal.class));
             }
         });
 

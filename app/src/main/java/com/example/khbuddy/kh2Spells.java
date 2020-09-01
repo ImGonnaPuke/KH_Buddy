@@ -30,7 +30,7 @@ public class kh2Spells extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kh2_spells);
+        setContentView(R.layout.activity_kh2_puzz);
 
 
         genList();

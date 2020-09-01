@@ -9,28 +9,65 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="413dp"
-        android:layout_height="230dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="397dp"
+        android:layout_height="247dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_kh" />
 
     <Button
+        android:id="@+id/summ"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="244dp"
+        android:height="60dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Summons"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/acc"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:height="60dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Accessories"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/part" />
+
+    <Button
         android:id="@+id/syth"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:height="60dp"
+        android:fontFamily="sans-serif-black"
         android:text="Syth Mats"
         android:textSize="20dp"
-        android:fontFamily="sans-serif-black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spells" />
+
+    <Button
+        android:id="@+id/skill"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:height="60dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Skills"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/summ" />
 
     <Button
         android:id="@+id/spells"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="301dp"
+        android:layout_marginTop="244dp"
+        android:height="60dp"
         android:fontFamily="sans-serif-black"
         android:text="Spells"
         android:textSize="20dp"
@@ -43,54 +80,34 @@
         android:id="@+id/key"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:height="60dp"
+        android:fontFamily="sans-serif-black"
         android:text="Keyblades"
         android:textSize="20dp"
-        android:fontFamily="sans-serif-black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/skill" />
 
     <Button
-        android:id="@+id/summ"
+        android:id="@+id/dal"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="301dp"
+        android:height="60dp"
         android:fontFamily="sans-serif-black"
-        android:text="Summons"
+        android:text="Dalmations"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/acc"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:text="Accessories"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/part" />
+        app:layout_constraintTop_toBottomOf="@+id/key" />
 
     <Button
         android:id="@+id/part"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:height="60dp"
+        android:fontFamily="sans-serif-black"
         android:text="Donald/Goofy"
         android:textSize="20dp"
-        android:fontFamily="sans-serif-black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/syth" />
-
-    <Button
-        android:id="@+id/skill"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="Skills"
-        android:textSize="20dp"
-        android:fontFamily="sans-serif-black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/summ" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
@@ -98,14 +115,14 @@
         android:layout_height="51dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="664dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
         app:adSize="BANNER"
         app:adUnitId="ca-app-pub-3940256099942544/6300978111"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"></com.google.android.gms.ads.AdView>
+        app:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

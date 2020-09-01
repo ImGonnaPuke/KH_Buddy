@@ -29,7 +29,7 @@ public class kh2Skill extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kh2_skill);
+        setContentView(R.layout.activity_kh2_puzz);
         genList();
         buildRecycle();
 

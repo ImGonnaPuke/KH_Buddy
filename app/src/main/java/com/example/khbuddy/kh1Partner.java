@@ -31,7 +31,7 @@ public class kh1Partner extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kh1_partner);
+        setContentView(R.layout.activity_kh1_dal);
         genList();
         buildRecycle();
 

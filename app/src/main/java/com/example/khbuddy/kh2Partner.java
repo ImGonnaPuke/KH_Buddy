@@ -29,7 +29,7 @@ public class kh2Partner extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kh2_partner);
+        setContentView(R.layout.activity_kh2_puzz);
         genList();
         buildRecycle();
 

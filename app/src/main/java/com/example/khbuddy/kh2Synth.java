@@ -29,7 +29,7 @@ public class kh2Synth extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kh2_synth);
+        setContentView(R.layout.activity_kh2_puzz);
         genList();
         buildRecycle();
 
