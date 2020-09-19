@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,10 +30,18 @@ public class kh2Spells extends AppCompatActivity {
     private ArrayList<Items> driveList;
     private RecyclerView.LayoutManager myLayout;
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh2_puzz);
+
+        int currentOrientation = getResources().getConfiguration().orientation;
+        if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
 
 
         genList();
@@ -60,7 +71,7 @@ public class kh2Spells extends AppCompatActivity {
         driveList.add(new Items (R.drawable.ice, "Blizzara", "Upon defeating Demyx before the\nbattle of 1000 heartless"));
         driveList.add(new Items (R.drawable.ice, "Blizzaga", "Finish Atlantica"));
 
-        driveList.add(new Items (R.drawable.thun, "Thunder", "Upon defeating the Hydra in\nMount Olympus"));
+        driveList.add(new Items (R.drawable.thun, "Thunder", "Upon defeating the Hydra in\nOlympus Coliseum"));
         driveList.add(new Items (R.drawable.thun, "Thundara", "Upon defeating Storm Rider\nin the Land of Dragons"));
         driveList.add(new Items (R.drawable.thun, "Thundaga", "Upon defeating Groundshaker\nin the Pride Lands"));
 
@@ -68,7 +79,7 @@ public class kh2Spells extends AppCompatActivity {
         driveList.add(new Items (R.drawable.cure, "Cura", "Right before the battle of\n1000 heartless"));
         driveList.add(new Items (R.drawable.cure, "Curaga", "Complete 100 Acre Wood"));
 
-        driveList.add(new Items (R.drawable.reflect, "Reflect", "Upon defeating Pete in Mount\nOlympus"));
+        driveList.add(new Items (R.drawable.reflect, "Reflect", "Upon defeating Pete in\nOlympus Coliseum"));
         driveList.add(new Items (R.drawable.reflect, "Reflera", "Upon defeating Xaldin at Beast's\nCastle"));
         driveList.add(new Items (R.drawable.reflect, "Reflectaga", "Upon defeating the MCP"));
 
@@ -76,26 +87,21 @@ public class kh2Spells extends AppCompatActivity {
         driveList.add(new Items (R.drawable.magnet, "Magnera", "Upon defeating the Grim Reaper in\nPort Royal"));
         driveList.add(new Items (R.drawable.magnet, "Magnega", "Upon defeating Xigbar in the World\nthat Never Was"));
 
-        driveList.add(new Items (R.drawable.emptykh2, "", ""));
-
-
-
-
 
     }
 
     public void showItem (int position) {
 
 
-        String toToast = driveList.get(position).getText1();
-        //Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+        String toToast = driveList.get(position).getText2();
+        //Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
         //toast.show();
 
         if(toToast.equals("Valor Form")) {
             //startActivity(new Intent(Drives.this, kh2Menu.class));
         }
         else{
-            Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+            Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
             toast.show();
         }
 

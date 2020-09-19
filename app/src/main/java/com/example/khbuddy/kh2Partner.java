@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,12 +29,20 @@ public class kh2Partner extends AppCompatActivity {
     private ArrayList<ItemsK> driveList;
     private RecyclerView.LayoutManager myLayout;
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh2_puzz);
         genList();
         buildRecycle();
+
+        int currentOrientation = getResources().getConfiguration().orientation;
+        if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
 
         AdView mAdView;
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
@@ -55,7 +66,7 @@ public class kh2Partner extends AppCompatActivity {
                 "Strength: +2", "Magic: +2", ""));
         driveList.add(new ItemsK (R.drawable.victorybell, "Victory Bell", "Port Royal Moogle",
                 "Strength: +3", "Magic: +2", ""));
-        driveList.add(new ItemsK (R.drawable.cometstaffkh2, "Comet Staff", "Mt Olympus Moogle",
+        driveList.add(new ItemsK (R.drawable.cometstaffkh2, "Comet Staff", "Olympus Coliseum Moogle",
                 "Strength: +2", "Magic: +2", ""));
         driveList.add(new ItemsK (R.drawable.lordsbroom, "Lord's Broom", "Pride Lands Moogle",
                 "Strength: +3", "Magic: +3", ""));
@@ -65,7 +76,7 @@ public class kh2Partner extends AppCompatActivity {
         driveList.add(new ItemsK (R.drawable.risingdragon, "Rising Dragon", "Win the Cerberus Cup",
                 "Strength: +4", "Magic: +4", "Fire Boost"));
         driveList.add(new ItemsK (R.drawable.shamansrelic, "Shaman Relic", "Shaman Heartless (1%)",
-                "Strength: +4", "Magic: +5", "Blizard Boost"));
+                "Strength: +4", "Magic: +5", "Blizzard Boost"));
         driveList.add(new ItemsK (R.drawable.nobodylance, "Nobody Lance", "Dragoon Nobody (1%)",
                 "Strength: +5", "Magic: +5", "Item Boost"));
         driveList.add(new ItemsK (R.drawable.centurion, "Centurion", "Item Synth",
@@ -92,7 +103,7 @@ public class kh2Partner extends AppCompatActivity {
                 "Strength: +2", "Magic: +0", ""));
         driveList.add(new ItemsK (R.drawable.chaingearkh2, "Chain Gear", "Moogle shop in Port Royal",
                 "Strength: +3", "Magic: +0", ""));
-        driveList.add(new ItemsK (R.drawable.fallingstar, "Falling Star", "Moogle shop in Mt Olympus",
+        driveList.add(new ItemsK (R.drawable.fallingstar, "Falling Star", "Moogle shop in Olympus Coliseum",
                 "Strength: +3", "Magic: +0", ""));
         driveList.add(new ItemsK (R.drawable.dreamcloud, "Dreamcloud", "Moogle shop in Pride Lands",
                 "Strength: +4", "Magic: +0", ""));
@@ -126,22 +137,21 @@ public class kh2Partner extends AppCompatActivity {
         driveList.add(new ItemsK (R.drawable.ultimatemushroom, "Ultimate Mushroom", "Even numbered Mushroom XIII",
                 "Strength: +9", "Magic: +0", "Protectega"));
 
-        driveList.add(new ItemsK (R.drawable.emptykh2, "", "", "",
-                "", ""));
+
     }
 
     public void showItem (int position) {
 
 
-        String toToast = driveList.get(position).getText1();
-        //Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+        String toToast = driveList.get(position).getText2();
+        //Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
         //toast.show();
 
         if(toToast.equals("Valor Form")) {
             //startActivity(new Intent(Drives.this, kh2Menu.class));
         }
         else{
-            Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+            Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
             toast.show();
         }
 

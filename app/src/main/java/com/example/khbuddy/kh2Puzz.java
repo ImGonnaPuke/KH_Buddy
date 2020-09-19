@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -28,12 +31,20 @@ public class kh2Puzz extends AppCompatActivity {
     private RecyclerView.LayoutManager myLayout;
 
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh2_puzz);
         genList();
         buildRecycle();
+
+        int currentOrientation = getResources().getConfiguration().orientation;
+        if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
 
         AdView mAdView;
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
@@ -69,7 +80,7 @@ public class kh2Puzz extends AppCompatActivity {
         driveList.add(new ItemsK (R.drawable.crown, "Hollow Bastion 8/23 -\nDaylight 24/48", "", "Heartless Manufactory, ground", "",
                 ""));
 
-        driveList.add(new ItemsK (R.drawable.crown, "Hollow Bastion 9/23 -\nSunset 1/48", "", "Cavern of Remembrance: Mineshaft, area\nwith yellow orbs", "",
+        driveList.add(new ItemsK (R.drawable.crown, "Hollow Bastion 9/23 -\nSunset 1/48", "", "Cavern of Remembrance: Mineshaft,\narea with yellow orbs", "",
                 ""));
         driveList.add(new ItemsK (R.drawable.crown, "Hollow Bastion 10/23 -\nSunset 4/48", "", "Borough, buildings across from Merlin's\nHouse", "",
                 ""));
@@ -102,23 +113,23 @@ public class kh2Puzz extends AppCompatActivity {
 
 
         driveList.add(new ItemsK (R.drawable.crown, "Beast's Castle 1/9 -\nAwakening 4/12",
-                "", "Undercroft, southwest corner, above furniture", "", ""));
+                "", "Undercroft, southwest corner, above\nfurniture", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Beast's Castle 2/9 -\nAwakening 6/12",
                 "", "Beast's Room, on the ground", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Beast's Castle 3/9 -\nAwakening 7/12",
-                "", "Underground Passage, highest platforms", "", ""));
+                "", "Underground Passage, highest \nplatforms", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Beast's Castle 4/9 -\nAwakening 9/12",
-                "", "Underground Passage, from the entrance from Undercroft", "", ""));
+                "", "Underground Passage, from the\nentrance from Undercroft", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Beast's Castle 5/9 -\nAwakening 10/12",
-                "", "Undercroft, southwest corner, above furniture", "", ""));
+                "", "Undercroft, southwest corner, above\nfurniture", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Beast's Castle 6/9 -\nHeart 12/12",
                 "", "West Wing, short staicase", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Beast's Castle 7/9 -\nDaylight 43/48",
-                "", "West Hall, in front of the stairs, use mobility skill", "", ""));
+                "", "West Hall, in front of the stairs, use\nmobility skill", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Beast's Castle 8/9 -\nSunset 28/48",
                 "", "Bridge, end of the bridge", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Beast's Castle 9/9 -\nSunset 37/48",
-                "", "Enterance Hall, center of the hall, use a mobility skill", "", ""));
+                "", "Enterance Hall, center of the hall, use\nmobility skill", "", ""));
 
         driveList.add(new ItemsK (R.drawable.crown, "Twilight Town 1/20 -\nAwakening 5/12",
                 "", "Tower: Wardrobe, get automatically", "", ""));
@@ -129,7 +140,7 @@ public class kh2Puzz extends AppCompatActivity {
         driveList.add(new ItemsK (R.drawable.crown, "Twilight Town 4/20 -\nDaylight 22/48",
                 "", "Mansion: Foyer, use glide", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Twilight Town 5/20 -\nDaylight 23/48",
-                "", "Mansion: Computer Room, on the ground", "", ""));
+                "", "Mansion: Computer Room, on the\nground", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Twilight Town 6/20 -\nDaylight 27/48",
                 "", "Tram Common, above synth shop", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Twilight Town 7/20 -\nDaylight 28/48",
@@ -174,7 +185,7 @@ public class kh2Puzz extends AppCompatActivity {
         driveList.add(new ItemsK (R.drawable.crown, "Land of Dragons 6/10 -\nFrontier 8/12",
                 "", "Mountain Trail, above large boulder, use\nlimits or mobility", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Land of Dragons 7/10 -\nDaylight 8/48",
-                "", "Village, above Moogle, use mobility skills", "", ""));
+                "", "Village, above Moogle, use mobility\nskills", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Land of Dragons 8/10 -\nDaylight 9/48",
                 "", "Throne Room, west side, use mobility\nskills", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Land of Dragons 9/10-\nDaylight 15/48",
@@ -194,23 +205,23 @@ public class kh2Puzz extends AppCompatActivity {
                 "", "Colonnade, above entrance to the\ncourtyard, use mobility skills", "", ""));
 
         driveList.add(new ItemsK (R.drawable.crown, "Olympus Coliseum 1/9 -\nHeart 3/12",
-                "", "Cave of the Dead: Entrance, on the ground", "", ""));
+                "", "Cave of the Dead: Entrance, on\nground", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Olympus Coliseum 2/9 -\nHeart 4/12",
-                "", "Underworld Caverns: Atrium, near entrance", "", ""));
+                "", "Underworld Caverns: Atrium,\nnear entrance", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Olympus Coliseum 3/9 -\nHeart 9/12",
-                "", "Underworld Caverns: Entrance, on the ground", "", ""));
+                "", "Underworld Caverns: Entrance, on\n ground", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Olympus Coliseum 4/9 -\nDuality 6/12",
-                "", "Underworld Caverns: Lost Road, near the\nexit to Atrium", "", ""));
+                "", "Underworld Caverns: Lost Road,\nnear the exit to Atrium", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Olympus Coliseum 5/9 -\nDuality 10/12",
-                "", "Underworld Caverns: Lock, behind the lock", "", ""));
+                "", "Underworld Caverns: Lock, behind\nthe lock", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Olympus Coliseum 6/9 -\nDaylight 25/48",
-                "", "Cave of the Dead: Passage, above the\ncenter of the area", "", ""));
+                "", "Cave of the Dead: Passage, above\nthe center of the area", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Olympus Coliseum 7/9 -\nDaylight 34/48",
-                "", "Underworld Caverns: Entrance, behind the\npillar", "", ""));
+                "", "Underworld Caverns: Entrance, behind\nthe pillar", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Olympus Coliseum 8/9 -\nDaylight 40/48",
-                "", "Underworld Caverns: Lost Road, above the\nsecond column, use mobility skills", "", ""));
+                "", "Underworld Caverns: Lost Road, above\nthe second column, use mobility skills", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Olympus Coliseum 9/9 -\nDaylight 46/48",
-                "", "Underworld Caverns: Lost Road, above the\nfirst column, use mobility skills", "", ""));
+                "", "Underworld Caverns: Lost Road, above\nthe first column, use mobility skills", "", ""));
 
 
         driveList.add(new ItemsK (R.drawable.crown, "Port Royal 1/13 -\nHeart 5/12",
@@ -274,7 +285,7 @@ public class kh2Puzz extends AppCompatActivity {
         driveList.add(new ItemsK (R.drawable.crown, "Agrabah 1/14 -\nDuality 5/12",
                 "", "Above a store stand, near Palace Gates", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Agrabah 2/14 -\nFrontier 3/12",
-                "", "Behind a store stand, near the Bazaar exit", "", ""));
+                "", "Behind a store stand, near the\nBazaar exit", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Agrabah 3/14 -\nFrontier 9/12",
                 "", "Bazaar, behind a store stand, in\nthe center entrance", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Agrabah 4/14 -\nFrontier 10/12",
@@ -282,21 +293,21 @@ public class kh2Puzz extends AppCompatActivity {
         driveList.add(new ItemsK (R.drawable.crown, "Agrabah 5/14 -\nDaylight 6/48",
                 "", "Cave of Wonders: Treasure Room,\nwest of entrance, behind treasure", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Agrabah 6/14 -\nDaylight 10/48",
-                "", "Cave of Wonders: Chasm of Challenges,\nbetween levels", "", ""));
+                "", "Cave of Wonders: Chasm of\nChallenges, between levels", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Agrabah 7/14 -\nDaylight 11/48",
-                "", "Cave of Wonders: Chasm of Challenges,\nbetween levels", "", ""));
+                "", "Cave of Wonders: Chasm of\nChallenges, between levels", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Agrabah 8/14 -\nDaylight 29/48",
                 "", "Cave of Wonders: Entrance, behind\ncave of wonders", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Agrabah 9/14 -\nDaylight 35/48",
                 "", "Sandswept Ruins, under the 2nd arch", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Agrabah 10/14 -\nDaylight 37/48",
-                "", "Cave of Wonders: Chasm of Challenges,\nbetween levels", "", ""));
+                "", "Cave of Wonders: Chasm of\nChallenges, between levels", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Agrabah 11/14 -\nDaylight 41/48",
                 "", "Sandswept Ruins, above the broken\nbridge connect to the tower", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Agrabah 12/14 -\nSunset 18/48",
                 "", "Sandswept Ruins, under the 1st arch", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Agrabah 13/14 -\nSunset 23/48",
-                "", "Cave of Wonders: Treasure Room, above\nthe pile of gold, use high jump", "", ""));
+                "", "Cave of Wonders: Treasure Room, \nabove the pile of gold, use high\njump", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Agrabah 14/14 -\nSunset 48/48",
                 "", "Bazaar, jump from one of the store\nstands using high jump", "", ""));
 
@@ -319,7 +330,7 @@ public class kh2Puzz extends AppCompatActivity {
         driveList.add(new ItemsK (R.drawable.crown, "Pride Land 9/10 -\nDaylight 48/48",
                 "", "Wildebeest Valley, under a tree, near\nthe entrance to Wastelands", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "Pride Land 10/10 -\nSunset 29/48",
-                "", "Pride Rock, jump off toward the western\nedge", "", ""));
+                "", "Pride Rock, jump off toward the\nwestern edge", "", ""));
 
         driveList.add(new ItemsK (R.drawable.crown, "100 Acre Wood 1/6 -\nDaylight 7/48",
                 "", "Pooh's House, above his house, use\nhigh jump", "", ""));
@@ -330,7 +341,7 @@ public class kh2Puzz extends AppCompatActivity {
         driveList.add(new ItemsK (R.drawable.crown, "100 Acre Wood 4/6 -\nDaylight 19/48",
                 "", "Rabbit's House, above the cabbages", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "100 Acre Wood 5/6 -\nDaylight 20/48",
-                "", "Spooky Cave, across from the 1st chest", "", ""));
+                "", "Spooky Cave, across from the\n1st chest", "", ""));
         driveList.add(new ItemsK (R.drawable.crown, "100 Acre Wood 6/6 -\nDaylight 26/48",
                 "", "Piglet's House, on a tree stump", "", ""));
 
@@ -343,25 +354,21 @@ public class kh2Puzz extends AppCompatActivity {
         driveList.add(new ItemsK (R.drawable.crown, "Space Paranoids 4/4 -\nSunset 46/48",
                 "", "Central Core, on the opposite side\nof the entrance", "", ""));
 
-        driveList.add(new ItemsK (R.drawable.crown, "World That Never Was 1/7 -\nDaylight 17/48",
+        driveList.add(new ItemsK (R.drawable.crown, "World That Never Was\n1/7 - Daylight 17/48",
                 "", "Naught's Skyway, above the area,\nuse glide", "", ""));
-        driveList.add(new ItemsK (R.drawable.crown, "World That Never Was 2/7 -\nSunset 11/48",
+        driveList.add(new ItemsK (R.drawable.crown, "World That Never Was\n2/7 - Sunset 11/48",
                 "", "Ruin and Creation's Passage, above\nthe entrance, use glide", "", ""));
-        driveList.add(new ItemsK (R.drawable.crown, "World That Never Was 3/7 -\nSunset  17/48",
+        driveList.add(new ItemsK (R.drawable.crown, "World That Never Was\n3/7 - Sunset  17/48",
                 "", "Ruin and Creation's Passage, above\nthe 2nd to last platform", "", ""));
-        driveList.add(new ItemsK (R.drawable.crown, "World That Never Was 4/7 -\nSunset  20/48",
+        driveList.add(new ItemsK (R.drawable.crown, "World That Never Was\n4/7 - Sunset  20/48",
                 "", "Twilight's View, use guide", "", ""));
-        driveList.add(new ItemsK (R.drawable.crown, "World That Never Was 5/7 -\nSunset  26/48",
+        driveList.add(new ItemsK (R.drawable.crown, "World That Never Was\n5/7 - Sunset  26/48",
                 "", "Crooked Ascension, on the ground", "", ""));
-        driveList.add(new ItemsK (R.drawable.crown, "World That Never Was 6/7 -\nSunset  34/48",
+        driveList.add(new ItemsK (R.drawable.crown, "World That Never Was\n6/7 - Sunset  34/48",
                 "", "Proof of Existence, on the ground", "", ""));
-        driveList.add(new ItemsK (R.drawable.crown, "World That Never Was 7/7 -\nSunset  35/48",
+        driveList.add(new ItemsK (R.drawable.crown, "World That Never Was\n7/7 - Sunset  35/48",
                 "", "Memory's Skyscraper, on the ground", "", ""));
 
-
-
-        driveList.add(new ItemsK (R.drawable.crown, "", "", "",
-                "", ""));
 
     }
 

@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -29,11 +32,19 @@ public class kh1Dal extends AppCompatActivity {
     //public static AdView mAdView;
 
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh1_dal);
 
+
+        int currentOrientation = getResources().getConfiguration().orientation;
+        if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
 
         genList();
         buildRecycle();
@@ -61,7 +72,7 @@ public class kh1Dal extends AppCompatActivity {
         driveList.add(new Items (R.drawable.dalmations, "Traverse Town 4/4", "Red Trinity in the Secret Waterway"));
 
         driveList.add(new Items (R.drawable.dalmations, "Wonderland 1/4", "Queen's Castle on the right ledge"));
-        driveList.add(new Items (R.drawable.dalmations, "Wonderland 2/4", "Lotus Forest on one of the raised lilypads"));
+        driveList.add(new Items (R.drawable.dalmations, "Wonderland 2/4", "Lotus Forest on one of the raised\nlilly pads"));
         driveList.add(new Items (R.drawable.dalmations, "Wonderland 3/4", "Tea Party Garden, enter via door in the\nLotus Forest"));
         driveList.add(new Items (R.drawable.dalmations, "Wonderland 4/4", "Lotus Forest, use the entrance to the\nTea Party Garden"));
 
@@ -85,22 +96,20 @@ public class kh1Dal extends AppCompatActivity {
         driveList.add(new Items (R.drawable.dalmations, "Monstro 1/4", "Chamber 3, reached by using barrels"));
         driveList.add(new Items (R.drawable.dalmations, "Monstro 2/4", "Mouth, on top of debris"));
         driveList.add(new Items (R.drawable.dalmations, "Monstro 3/4", "Chamber 6"));
-        driveList.add(new Items (R.drawable.dalmations, "Monstro 4/4", "Chamber 5 on a barrel on one of the higher\nplatforms"));
+        driveList.add(new Items (R.drawable.dalmations, "Monstro 4/4", "Chamber 5 on a barrel on one of the\nhigher platforms"));
 
         driveList.add(new Items (R.drawable.dalmations, "Neverland 1/4", "White Trinity on the Deck"));
         driveList.add(new Items (R.drawable.dalmations, "Neverland 2/4", "On a beam in the ship's Hold"));
         driveList.add(new Items (R.drawable.dalmations, "Neverland 3/4", "Yellow Trinity in the ship's Hold"));
         driveList.add(new Items (R.drawable.dalmations, "Neverland 4/4", "Chest in Captain's Cabin after Anti Sora"));
 
-        driveList.add(new Items (R.drawable.dalmations, "Hollow Bastion 1/4", "In the Grand Hall near the Keyholes during\nthe 2nd visit"));
+        driveList.add(new Items (R.drawable.dalmations, "Hollow Bastion 1/4", "In the Grand Hall near the Keyholes\nduring the 2nd visit"));
         driveList.add(new Items (R.drawable.dalmations, "Hollow Bastion 2/4", "Bottom of Rising Falls"));
         driveList.add(new Items (R.drawable.dalmations, "Hollow Bastion 3/4", "Cast Gravity on a floating platform in\nCastle Gates"));
         driveList.add(new Items (R.drawable.dalmations, "Hollow Bastion 4/4", "Cast Gravity on a floating platform in\nHigh Tower"));
 
 
 
-
-        driveList.add(new Items (R.drawable.emptykh1, "", ""));
 
 
 
@@ -111,15 +120,15 @@ public class kh1Dal extends AppCompatActivity {
     public void showItem (int position) {
 
 
-        String toToast = driveList.get(position).getText1();
-        //Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+        String toToast = driveList.get(position).getText2();
+        //Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
         //toast.show();
 
         if(toToast.equals("Valor Form")) {
             //startActivity(new Intent(Drives.this, kh2Menu.class));
         }
         else{
-            Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+            Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
             toast.show();
         }
 

@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,12 +29,20 @@ public class kh2Skill extends AppCompatActivity {
     private ArrayList<ItemsK> driveList;
     private RecyclerView.LayoutManager myLayout;
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh2_puzz);
         genList();
         buildRecycle();
+
+        int currentOrientation = getResources().getConfiguration().orientation;
+        if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
 
         AdView mAdView;
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
@@ -53,14 +64,14 @@ public class kh2Skill extends AppCompatActivity {
                 "Shield: lv 9", "Rod: lv 17"));
         driveList.add(new ItemsK (R.drawable.emptykh2, "Experience Boost", "Doubles XP received when HP is <50%", "Sword: lv 9",
                 "Shield: lv 17", "Rod: lv 7"));
-        driveList.add(new ItemsK (R.drawable.emptykh2, "Magic Lock-On", "Magic attacks will automatically lock-on", "Sword: lv 12",
+        driveList.add(new ItemsK (R.drawable.emptykh2, "Magic Lock-On", "Magic attacks will automatically\nlock-on", "Sword: lv 12",
                 "Shield: lv 12", "Rod: lv 12"));
         driveList.add(new ItemsK (R.drawable.emptykh2, "Reaction Boost", "Reaction commands will do 50% more\ndamage", "Sword: lv 15",
                 "Shield: lv 23", "Rod: lv 33"));
         driveList.add(new ItemsK (R.drawable.emptykh2, "Item Boost", "Item effectiveness is increased", "Sword: lv 17",
                 "Shield: lv 7", "Rod: lv 9"));
 
-        driveList.add(new ItemsK (R.drawable.emptykh2, "Leaf Bracer", "Invincible when casting any form of cure", "Sword: lv 20",
+        driveList.add(new ItemsK (R.drawable.emptykh2, "Leaf Bracer", "Invincible when casting any form\nof cure", "Sword: lv 20",
                 "Shield: lv 20", "Rod: lv 20"));
         driveList.add(new ItemsK (R.drawable.emptykh2, "Fire Boost", "Fire attacks do more damage", "Sword: lv 23",
                 "Shield: lv 33", "Rod: lv 15"));
@@ -73,7 +84,7 @@ public class kh2Skill extends AppCompatActivity {
 
         driveList.add(new ItemsK (R.drawable.emptykh2, "Damage Drive", "Restores drive when hit", "Sword: lv 33",
                 "Shield: lv 15", "Rod: lv 23"));
-        driveList.add(new ItemsK (R.drawable.emptykh2, "Air Combo Boost", "Deal more damage for longerair combos", "Sword: lv 36",
+        driveList.add(new ItemsK (R.drawable.emptykh2, "Air Combo Boost", "Deal more damage for longer\nair combos", "Sword: lv 36",
                 "Shield: lv 44", "Rod: lv 73"));
         driveList.add(new ItemsK (R.drawable.emptykh2, "Blizzard Boost", "Blizzard attacks deal more damage", "Sword: lv 41",
                 "Shield: lv 59", "Rod: lv 99"));
@@ -106,7 +117,7 @@ public class kh2Skill extends AppCompatActivity {
                 "", "Defeat Twilight Thorn"));
         driveList.add(new ItemsK (R.drawable.emptykh2, "Scan", "See enemy health", "",
                 "", "Defeat Axel at the Sandlot"));
-        driveList.add(new ItemsK (R.drawable.emptykh2, "Sliding Dash", "Slide toward an enemy and deal damage", "",
+        driveList.add(new ItemsK (R.drawable.emptykh2, "Sliding Dash", "Slide toward an enemy and\ndeal damage", "",
                 "", "Complete the Village Cave"));
         driveList.add(new ItemsK (R.drawable.emptykh2, "Aerial Sweep", "Leap into the air against aerial enemies", "",
                 "", "Defeat Shan-Yu"));
@@ -130,14 +141,15 @@ public class kh2Skill extends AppCompatActivity {
                 "", "Pass the Stone Guardians"));
         driveList.add(new ItemsK (R.drawable.emptykh2, "Finishing Leap", "Press [] instead of a normal finisher", "",
                 "", "Defeat Volcanic & Blizzard Lord"));
-        driveList.add(new ItemsK (R.drawable.emptykh2, "Flash Step", "Shorter range Sliding Dash, easy to parry attacks", "",
+        driveList.add(new ItemsK (R.drawable.emptykh2, "Flash Step", "Shorter range Sliding Dash, easy to\nparry attacks", "",
                 "", "Defeat Prison Keeper"));
 
-        driveList.add(new ItemsK (R.drawable.emptykh2, "Vicinity Break", "When surrounded by enemies spin attack", "",
+        driveList.add(new ItemsK (R.drawable.emptykh2, "Vicinity Break", "When surrounded by enemies\nspin attack", "",
                 "", "Defeat Hostile Program"));
         driveList.add(new ItemsK (R.drawable.emptykh2, "Guard Break", "Stong finisher", "",
                 "", "Defeat 1000 Heartless"));
-        driveList.add(new ItemsK (R.drawable.emptykh2, "Aerial Spiral", "Spiral into the air against airborne enemies", "",
+        driveList.add(new ItemsK (R.drawable.emptykh2, "Aerial Spiral", "Spiral into the air against\n" +
+                "airborne enemies", "",
                 "", "Recover Medallions"));
         driveList.add(new ItemsK (R.drawable.emptykh2, "Horizontal Slash", "Press [] during an air combo", "",
                 "", "Defeat Grim Reaper on the Black Pearl"));
@@ -151,8 +163,6 @@ public class kh2Skill extends AppCompatActivity {
         driveList.add(new ItemsK (R.drawable.emptykh2, "Combo Master", "Always complete a combo", "",
                 "", "Defeat Roxas"));
 
-        driveList.add(new ItemsK (R.drawable.emptykh2, "", "", "",
-                "", ""));
 
 
 
@@ -161,15 +171,15 @@ public class kh2Skill extends AppCompatActivity {
     public void showItem (int position) {
 
 
-        String toToast = driveList.get(position).getText1();
-        //Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+        String toToast = driveList.get(position).getText2();
+        //Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
         //toast.show();
 
         if(toToast.equals("emptykh2 Form")) {
             //startActivity(new Intent(Drives.this, kh2Menu.class));
         }
         else{
-            Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+            Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
             toast.show();
         }
 

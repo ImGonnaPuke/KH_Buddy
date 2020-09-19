@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,12 +29,20 @@ public class kh2Armor extends AppCompatActivity {
     private ArrayList<ItemsK> driveList;
     private RecyclerView.LayoutManager myLayout;
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh2_puzz);
         genList();
         buildRecycle();
+
+        int currentOrientation = getResources().getConfiguration().orientation;
+        if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
 
         AdView mAdView;
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
@@ -164,23 +175,23 @@ public class kh2Armor extends AppCompatActivity {
 
 
 
-        driveList.add(new ItemsK (R.drawable.emptykh2, "", "", "",
-                "", ""));
+        //driveList.add(new ItemsK (R.drawable.emptykh2, "", "", "",
+          //      "", ""));
 
     }
 
     public void showItem (int position) {
 
 
-        String toToast = driveList.get(position).getText1();
-        //Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+        String toToast = driveList.get(position).getText2();
+        //Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
         //toast.show();
 
         if(toToast.equals("emptykh1 Form")) {
             //startActivity(new Intent(Drives.this, kh2Menu.class));
         }
         else{
-            Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+            Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
             toast.show();
         }
 

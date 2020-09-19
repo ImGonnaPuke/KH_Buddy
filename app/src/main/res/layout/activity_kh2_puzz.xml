@@ -31,7 +31,7 @@
             android:layout_centerHorizontal="true"
             android:layout_weight="0"
             app:adSize="BANNER"
-            app:adUnitId="ca-app-pub-3940256099942544/6300978111"></com.google.android.gms.ads.AdView>
+            app:adUnitId="ca-app-pub-7001225519001928/2420563521"></com.google.android.gms.ads.AdView>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

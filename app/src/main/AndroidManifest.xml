@@ -16,6 +16,8 @@
         <activity android:name=".kh1Dal" />
         <activity android:name=".kh2Armor" />
 
+
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-7001225519001928~7920302211" />
@@ -38,6 +40,7 @@
         <activity android:name=".kh1Menu" />
         <activity android:name=".kh2Menu" />
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

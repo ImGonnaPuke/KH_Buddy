@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,12 +29,20 @@ public class kh2Acc extends AppCompatActivity {
     private ArrayList<ItemsK> driveList;
     private RecyclerView.LayoutManager myLayout;
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kh2_acc);
+        setContentView(R.layout.activity_kh2_puzz);
         genList();
         buildRecycle();
+
+        int currentOrientation = getResources().getConfiguration().orientation;
+        if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
 
         AdView mAdView;
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
@@ -94,7 +105,7 @@ public class kh2Acc extends AppCompatActivity {
 
         driveList.add(new ItemsK (R.drawable.sard, "Sardonyx Ring", "Can be bought from Monty's Moogle Shop", "AP: + 0", "Str: + 0",
                 "Mag: + 0"));
-        driveList.add(new ItemsK (R.drawable.silverring, "Silver Ring", "Can be bought from Monty's Moogle Shop", "AP: + 1", "Str: + 0",
+        driveList.add(new ItemsK (R.drawable.silverring, "Silver Ring", "Can be bought from Monty's Moogle\nShop", "AP: + 1", "Str: + 0",
                 "Mag: + 1"));
         driveList.add(new ItemsK (R.drawable.starcharm, "Star Charm", "Item Synth", "AP: + 5", "Str: + 2",
                 "Mag: + 2"));
@@ -121,8 +132,8 @@ public class kh2Acc extends AppCompatActivity {
         driveList.add(new ItemsK (R.drawable.sarchiveplus, "Shadow Archive+", "Item Synth", "AP: + 5", "Str: + 0",
                 "Mag: + 3\t\t\t\t\t\t\t\t\t\t\t\tGrants MP Rage"));
 
-        driveList.add(new ItemsK (R.drawable.emptykh2, "", "", "",
-                "", ""));
+        //driveList.add(new ItemsK (R.drawable.emptykh2, "", "", "",
+          //      "", ""));
 
 
     }
@@ -130,15 +141,15 @@ public class kh2Acc extends AppCompatActivity {
     public void showItem (int position) {
 
 
-        String toToast = driveList.get(position).getText1();
-        //Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+        String toToast = driveList.get(position).getText2();
+        //Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
         //toast.show();
 
         if(toToast.equals("Valor Form")) {
             //startActivity(new Intent(Drives.this, kh2Menu.class));
         }
         else{
-            Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+            Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
             toast.show();
         }
 

@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -28,12 +31,20 @@ public class kh1Partner extends AppCompatActivity {
     private RecyclerView.LayoutManager myLayout;
 
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh1_dal);
         genList();
         buildRecycle();
+        int currentOrientation = getResources().getConfiguration().orientation;
+        if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
+
 
         AdView mAdView;
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
@@ -71,7 +82,7 @@ public class kh1Partner extends AppCompatActivity {
                 "Strength: +8", "Magic: -1", ""));
         driveList.add(new ItemsK (R.drawable.lordfortune, "Lord Fortune", "Fairy Godmother after getting all summons",
                 "Strength: +5", "Magic: +1", ""));
-        driveList.add(new ItemsK (R.drawable.violetta, "Violetta", "White Trinity in Olymmpus Coliseum",
+        driveList.add(new ItemsK (R.drawable.violetta, "Violetta", "White Trinity in Olympus Coliseum",
                 "Strength: +8", "Magic: -1", ""));
         driveList.add(new ItemsK (R.drawable.wizardsrelic, "Wizard's Relic", "Wizard (.2%)",
                 "Strength: +4", "Magic: +2", ""));
@@ -118,23 +129,21 @@ public class kh1Partner extends AppCompatActivity {
         driveList.add(new ItemsK (R.drawable.mightyshield, "Mighty Shield", "End of the World World Terminus",
                 "Strength: +15", "Magic: +0", ""));
 
-        driveList.add(new ItemsK (R.drawable.emptykh1, "", "", "",
-                "", ""));
 
     }
 
     public void showItem (int position) {
 
 
-        String toToast = driveList.get(position).getText1();
-        //Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+        String toToast = driveList.get(position).getText2();
+        //Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
         //toast.show();
 
         if(toToast.equals("Valor Form")) {
             //startActivity(new Intent(Drives.this, kh2Menu.class));
         }
         else{
-            Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+            Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
             toast.show();
         }
 

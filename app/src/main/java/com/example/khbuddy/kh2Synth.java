@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,6 +29,7 @@ public class kh2Synth extends AppCompatActivity {
     private ArrayList<ItemsK> driveList;
     private RecyclerView.LayoutManager myLayout;
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +37,13 @@ public class kh2Synth extends AppCompatActivity {
         genList();
         buildRecycle();
 
+
+        int currentOrientation = getResources().getConfiguration().orientation;
+        if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
 
         AdView mAdView;
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
@@ -51,7 +62,7 @@ public class kh2Synth extends AppCompatActivity {
         driveList = new ArrayList<>();
 
         driveList.add(new ItemsK (R.drawable.blazeshart, "Blazing Shard", "", "Rank C", "",
-                "Hammer Frame (10%), Minute Bomb (6%)"));
+                "Hammer Frame (10%), Minute Bomb\n(6%)"));
         driveList.add(new ItemsK (R.drawable.blazestone, "Blazing Stone", "", "Rank B", "",
                 "Cannon Gun (6%), Tornado Step (8%)"));
         driveList.add(new ItemsK (R.drawable.blazegem, "Blazing Gem", "", "Rank A", "",
@@ -82,9 +93,9 @@ public class kh2Synth extends AppCompatActivity {
         driveList.add(new ItemsK (R.drawable.lucshard, "Lucid Shard", "", "Rank C", "",
                 "Rabid Dog (6%), Trick Ghost (10%)"));
         driveList.add(new ItemsK (R.drawable.lucstone, "Lucid Stone", "", "Rank B", "",
-                "Wight Knight (8%), Graveyard/Toy Soldier\n(12%)"));
+                "Wight Knight (8%), Graveyard/Toy\nSoldier(12%)"));
         driveList.add(new ItemsK (R.drawable.lucgem, "Lucid Gem", "", "Rank A", "",
-                "Bookmaster (10%), Magnum Loader (8%)"));
+                "Bookmaster (10%), Magnum Loader\n(8%)"));
         driveList.add(new ItemsK (R.drawable.luccryst, "Lucid Crystal", "", "Rank S", "",
                 "Neoshadow (8%)"));
 
@@ -134,18 +145,18 @@ public class kh2Synth extends AppCompatActivity {
                 "Through item synthesis and found in\nchests"));
 
         driveList.add(new ItemsK (R.drawable.brightshart, "Bright Shard", "", "Rank C", "",
-                "Bulky Vendor (Common), Hook Bat/Minute\nBomb/Rabid Dog (3%), Creeper Plant/\nSoldier (4%)"));
+                "Bulky Vendor (Common), Hook Bat/\nMinute Bomb/Rabid Dog (3%), Creeper\nPlant/Soldier (4%)"));
         driveList.add(new ItemsK (R.drawable.brightstone, "Bright Stone", "", "Rank B", "",
-                "Bulky Vendor (Rare), Cannon Gun/Silver\nRock (3%), Aeroplane/Tornado Step/Wight\nKnight/Driller Mole/Luna/Bandit (4%)"));
+                "Bulky Vendor (Rare), Cannon Gun/Silver\nRock (3%), Aeroplane/Tornado Step/W.\nKnight/Driller Mole/Luna/Bandit (4%)"));
         driveList.add(new ItemsK (R.drawable.brightgem, "Bright Gem", "", "Rank A", "",
-                "Bulky Vendor (Limited), \nSurveillance Robot (3%), Aerial Knocker/\nMagnum Loader (4%),"));
+                "Bulky Vendor (Limited), \nSurveillance Robot (3%), Aerial\nKnocker/Magnum Loader (4%),"));
         driveList.add(new ItemsK (R.drawable.brightcryst, "Bright Crystal", "", "Rank S", "",
                 "Bulky Vendor (Prime), Air Pirate (4%), \nCrescendo (3%), Neoshadow (4%),\nStrafer (4%)"));
 
         driveList.add(new ItemsK (R.drawable.enshart, "Energy Shard", "", "Rank C", "",
                 "Bolt Tower/Gargoyle Knight/\nGargoyle Warrior/Nightwalker (4%)"));
         driveList.add(new ItemsK (R.drawable.enstone, "Energy Stone", "", "Rank B", "",
-                "Hammer Frame/Lance Soldier/Trick Ghost\n(4%)"));
+                "Hammer Frame/Lance Soldier/Trick\nGhost (4%)"));
         driveList.add(new ItemsK (R.drawable.engem, "Energy Gem", "", "Rank A", "",
                 "Emerald Blues/Fortuneteller (4%)"));
         driveList.add(new ItemsK (R.drawable.encryst, "Energy Crystal", "", "Rank S", "",
@@ -158,17 +169,17 @@ public class kh2Synth extends AppCompatActivity {
         driveList.add(new ItemsK (R.drawable.serengem, "Serenity Gem", "", "Rank A", "",
                 "Dancer/Dragoon/Gambler/Sniper (4%)"));
         driveList.add(new ItemsK (R.drawable.serencryst, "Serenity Crystal", "", "Rank S", "",
-                "Assassin/Berserker/Samurai/Sorcerer (4%)\n" +
-                        "Bulky Vendor (Prime), Item synthesis"));
+                "Assassin/Berserker/Samurai/Sorcerer \n(4%)" +
+                        "Bulky Vendor (Prime), Item Synth"));
 
-        driveList.add(new ItemsK (R.drawable.rememshar, "Rememberance Shard", "", "Rank C", "",
+        driveList.add(new ItemsK (R.drawable.rememshar, "Remembrance Shard", "", "Rank C", "",
                 "Silent Launcher/Perplex (6%),\nIron Hammer (10%) "));
-        driveList.add(new ItemsK (R.drawable.rememstone, "Rememberance Stone", "", "Rank B", "",
+        driveList.add(new ItemsK (R.drawable.rememstone, "Remembrance Stone", "", "Rank B", "",
                 "Air Viking (6%), Magic Phantom/\nLance Warrior/Necromancer (10%)"));
-        driveList.add(new ItemsK (R.drawable.rememgem, "Rememberance Gem", "", "Rank A", "",
+        driveList.add(new ItemsK (R.drawable.rememgem, "Remembrance Gem", "", "Rank A", "",
                 "Spring Metal/Runemaster (10%), \nMad Bumper (12%)"));
-        driveList.add(new ItemsK (R.drawable.rememcrys, "Rememberance Crystal", "", "Rank S", "",
-                "Reckless (12%), \nCavern of Remembrance: Engine Chamber"));
+        driveList.add(new ItemsK (R.drawable.rememcrys, "Remembrance Crystal", "", "Rank S", "",
+                "Reckless (12%), \nCavern of Remembrance: Engine\nChamber"));
 
         driveList.add(new ItemsK (R.drawable.tranqshart, "Tranquil Shard", "", "Rank C", "",
                 "Mushroom XIII"));
@@ -182,32 +193,28 @@ public class kh2Synth extends AppCompatActivity {
         //end
 
         driveList.add(new ItemsK (R.drawable.orichal, "Orichalcum", "", "Rank A", "",
-                "Bulky Vendor (Common - 10%/Rare - 12%/\nLimited - 16%/Prime - 18%)"));
+                "Bulky Vendor (Common - 10%/Rare - \n12%/Limited - 16%/Prime - 18%)"));
         driveList.add(new ItemsK (R.drawable.orichalplus, "Orichalcum+", "", "Rank S", "",
                 "Found in chests and events"));
         driveList.add(new ItemsK (R.drawable.manifestill, "Manifest Illusion", "", "Rank A", "",
-                "Lingering Sentiment, Frontier Puzzle, \nItem synthesis, Cavern of Remembrance:\nDepths"));
+                "Lingering Sentiment, Frontier Puzzle, \nItem synthesis, Cavern of\nRemembrance:Depths"));
         driveList.add(new ItemsK (R.drawable.lostill, "Lost Illusion", "", "Rank S", "",
-                "Absent silhouettes, Org XIII Replica battles"));
-
-        driveList.add(new ItemsK (R.drawable.emptykh2, "", "", "",
-                "", ""));
-
+                "Absent silhouettes, Org XIII Replica\nbattles"));
 
     }
 
     public void showItem (int position) {
 
 
-        String toToast = driveList.get(position).getText1();
-        //Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+        String toToast = driveList.get(position).getText5();
+        //Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
         //toast.show();
 
         if(toToast.equals("Valor Form")) {
             //startActivity(new Intent(Drives.this, kh2Menu.class));
         }
         else{
-            Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+            Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
             toast.show();
         }
 

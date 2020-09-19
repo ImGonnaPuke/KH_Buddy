@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -28,10 +31,18 @@ public class Drives extends AppCompatActivity {
 
 
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_drives);
+        setContentView(R.layout.activity_kh2_puzz);
+
+        int currentOrientation = getResources().getConfiguration().orientation;
+        if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
 
         genList();
         buildRecycle();
@@ -53,8 +64,8 @@ public class Drives extends AppCompatActivity {
     public void genList(){
         driveList = new ArrayList<>();
         driveList.add(new Items (R.drawable.valor, "Valor Form", "Obtained at Mysterious Tower"));
-        driveList.add(new Items (R.drawable.wisdom, "Wisdom Form", "Obtained after completing Timeless River"));
-        driveList.add(new Items (R.drawable.limit, "Limit Form", "After the second visit to Hollow Bastion"));
+        driveList.add(new Items (R.drawable.wisdom, "Wisdom Form", "Obtained after completing Timeless\nRiver"));
+        driveList.add(new Items (R.drawable.limit, "Limit Form", "After the second visit to Hollow\nBastion"));
         driveList.add(new Items (R.drawable.master, "Master Form", "Obtained after reuniting with \nMickey at Hollow Bastion"));
         driveList.add(new Items (R.drawable.finalf, "Final Form", "Obtained after fighting Roxas, randomly \nupon activating any drive"));
         driveList.add(new Items (R.drawable.heartless, "Anti Form", "Activated randomly upon using drive \nforms 5 or  more times"));
@@ -63,15 +74,15 @@ public class Drives extends AppCompatActivity {
     public void showItem (int position) {
 
 
-        String toToast = driveList.get(position).getText1();
+        String toToast = driveList.get(position).getText2();
         //Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
         //toast.show();
 
-        if(toToast.equals("Valor Form")) {
+        if(toToast.equals("penis")) {
             startActivity(new Intent(Drives.this, kh2Menu.class));
         }
         else{
-            Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+            Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
             toast.show();
         }
 

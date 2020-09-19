@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -28,12 +31,20 @@ public class kh2Keyblades extends AppCompatActivity {
     private RecyclerView.LayoutManager myLayout;
 
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh2_puzz);
         genList();
         buildRecycle();
+
+        int currentOrientation = getResources().getConfiguration().orientation;
+        if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
 
         AdView mAdView;
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
@@ -57,15 +68,13 @@ public class kh2Keyblades extends AppCompatActivity {
                 "Air Combo Plus"));
         driveList.add(new ItemsK (R.drawable.hdrag, "Hidden Dragon", "Finish Land of Dragons", "Strength: +2", "Magic: +2",
                 "MP Rage"));
-        driveList.add(new ItemsK (R.drawable.hcrest, "Hero's Crest", "Finish Mt. Olympus", "Strength: +4", "Magic: +0",
+        driveList.add(new ItemsK (R.drawable.hcrest, "Hero's Crest", "Finish Olympus Coliseum", "Strength: +4", "Magic: +0",
                 "Air Combo Boost"));
 
         driveList.add(new ItemsK (R.drawable.oath, "Oathkeeper", "Unlock the gate in Twilight Town (2nd visit)", "Strength: +3", "Magic: +1",
                 "Form Boost"));
         driveList.add(new ItemsK (R.drawable.mono, "Monochrome", "Finish Timeless River", "Strength: +3", "Magic: +2",
                 "Item Boost"));
-        driveList.add(new ItemsK (R.drawable.oath, "Oathkeeper", "Unlock the gate in Twilight Town (2nd visit)", "Strength: +3", "Magic: +1",
-                "Form Boost"));
         driveList.add(new ItemsK (R.drawable.fwind, "Follow the Wind", "Finish Port Royal 1", "Strength: +3", "Magic: +1",
                 "Draw"));
         driveList.add(new ItemsK (R.drawable.wlamp, "Wishing Lamp", "Finish Agrabah 1", "Strength: +4", "Magic: +3",
@@ -79,7 +88,7 @@ public class kh2Keyblades extends AppCompatActivity {
                 "Experience Boost"));
         driveList.add(new ItemsK (R.drawable.smem, "Sweet Memories", "Complete the Expotition mini-game in\n100-acre wood", "Strength: +0", "Magic: +4",
                 "Drive Converter"));
-        driveList.add(new ItemsK (R.drawable.gsoul, "Guardian Soul", "Finish Mt. Olympus 2", "Strength: +5", "Magic: +1",
+        driveList.add(new ItemsK (R.drawable.gsoul, "Guardian Soul", "Finish Olympus Coliseum 2", "Strength: +5", "Magic: +1",
                 "Reaction Boost"));
         driveList.add(new ItemsK (R.drawable.rrose, "Rumbling Rose", "Finish Beast's Castle 2", "Strength: +5", "Magic: +0",
                 "Finishing Plus"));
@@ -99,28 +108,27 @@ public class kh2Keyblades extends AppCompatActivity {
                 "Drive Boost"));
         driveList.add(new ItemsK (R.drawable.fatalc, "Fatal Crest", "Finish the Goddess of Fate Cup", "Strength: +3", "Magic: +5",
                 "Berserk Charge"));
-        driveList.add(new ItemsK (R.drawable.wproof, "Winner's Proof", "Finish the Musroom XIII sidequest", "Strength: +5", "Magic: +7",
+        driveList.add(new ItemsK (R.drawable.wproof, "Winner's Proof", "Finish the Mushroom XIII sidequest", "Strength: +5", "Magic: +7",
                 "EXP Zero"));
         driveList.add(new ItemsK (R.drawable.ultimakh2, "Ultima Weapon", "Item Synthesis", "Strength: +6", "Magic: +4",
                 "MP Hastega"));
 
-        driveList.add(new ItemsK (R.drawable.emptykh2, "", "", "",
-                "", ""));
+
 
     }
 
     public void showItem (int position) {
 
 
-        String toToast = driveList.get(position).getText1();
-        //Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+        String toToast = driveList.get(position).getText2();
+        //Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
         //toast.show();
 
         if(toToast.equals("Valor Form")) {
             //startActivity(new Intent(Drives.this, kh2Menu.class));
         }
         else{
-            Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+            Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
             toast.show();
         }
 

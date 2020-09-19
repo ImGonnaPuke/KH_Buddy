@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,16 +25,24 @@ import java.util.ArrayList;
 public class kh1Acc extends AppCompatActivity {
 
     private RecyclerView rView;
-    private KH2keybladeAdapter mAdapter;
+    private kh1AccessAdaptor mAdapter;
     private ArrayList<ItemsK> driveList;
     private RecyclerView.LayoutManager myLayout;
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh1_dal);
         genList();
         buildRecycle();
+
+        int currentOrientation = getResources().getConfiguration().orientation;
+        if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
 
         AdView mAdView;
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
@@ -53,21 +64,21 @@ public class kh1Acc extends AppCompatActivity {
                 " \t\t\tHP: +0\t\t\tDef: +0", "Str: +0", "MP: +0  \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 0%" +
                 "\t\t\tDark Res: 0%"));
 
-        driveList.add(new ItemsK (R.drawable.drawring, "Angel Bangle", "Item Synth, chest at Gate to the Darkness", "AP: +0 \t\t\tHP: +6\t\t\tDef: +2",
+        driveList.add(new ItemsK (R.drawable.drawring, "Angel Bangle", "Item Synth, chest at Gate to the\nDarkness", "AP: +0 \t\t\tHP: +6\t\t\tDef: +2",
                 "Str: +0", "MP: +0  \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 0%"));
         driveList.add(new ItemsK (R.drawable.garn, "Atlas Armlet", "Item Synth", "AP: +0 \t\t\tHP: +0\t\t\tDef: +2",
                 "Str: +0", "MP: +2  \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 0%"));
 
         driveList.add(new ItemsK (R.drawable.bam, "Blizzard Ring", "Equipped to Beast", "AP: +0 \t\t\tHP: +0\t\t\tDef: +1",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 20%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 0%"));
-        driveList.add(new ItemsK (R.drawable.baraam, "Blizzara Ring", "Blue Rhapsody .5%, chest at Rising Falls", "AP: +0 \t\t\tHP: +0\t\t\tDef: +2",
+        driveList.add(new ItemsK (R.drawable.baraam, "Blizzara Ring", "Blue Rhapsody (.5%), chest at\nRising Falls", "AP: +0 \t\t\tHP: +0\t\t\tDef: +2",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 20%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 0%"));
-        driveList.add(new ItemsK (R.drawable.bagaarm, "Blizzaga Ring", "Sea Neon .2% and Sheltering Zone 1%", "AP: +0 \t\t\tHP: +0\t\t\tDef: +3",
+        driveList.add(new ItemsK (R.drawable.bagaarm, "Blizzaga Ring", "Sea Neon (.2%),  Sheltering Zone (1%)", "AP: +0 \t\t\tHP: +0\t\t\tDef: +3",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 20%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 0%"));
         driveList.add(new ItemsK (R.drawable.bgunarm, "Blizzagun Band", "Accessory Shop", "AP: +0 \t\t\tHP: +0\t\t\tDef: +2",
                 "Str: +2", "MP: +0 \t\t\tIce Res: 20%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 0%"));
 
-        driveList.add(new ItemsK (R.drawable.cbelt, "Brave Warrior", "Defeat Guard Armor, World Terminus chest", "AP: +0 \t\t\tHP: +3\t\t\tDef: +0",
+        driveList.add(new ItemsK (R.drawable.cbelt, "Brave Warrior", "Defeat Guard Armor, World\nTerminus chest", "AP: +0 \t\t\tHP: +3\t\t\tDef: +0",
                 "Str: +1", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 0%"));
         driveList.add(new ItemsK (R.drawable.cank, "Chaos Ring", "Accessory Shop", "AP: +0 \t\t\tHP: +0\t\t\tDef: +0",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 0%"));
@@ -91,9 +102,9 @@ public class kh1Acc extends AppCompatActivity {
 
         driveList.add(new ItemsK (R.drawable.platring, "EXP Ring", "Finish 100 Acre Wood", "AP: +1 \t\t\tHP: +0\t\t\tDef: +0",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 0%\t\t\tEXP: +20%"));
-        driveList.add(new ItemsK (R.drawable.fbangle, "Fire Ring", "Accessory Shop, chest in Agrabah,\non Alladin and Jack", "AP: +0 \t\t\tHP: +0\t\t\tDef: +1",
+        driveList.add(new ItemsK (R.drawable.fbangle, "Fire Ring", "Accessory Shop, chest in Agrabah,\non Aladdin and Jack", "AP: +0 \t\t\tHP: +0\t\t\tDef: +1",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 20%\nElec Res: 0%\t\t\tDark Res: 0%"));
-        driveList.add(new ItemsK (R.drawable.firabangle, "Fira Ring", "Accessory Shop, chest in Hollow Bastion,\nRed Nocturne (.5%)", "AP: +0 \t\t\tHP: +0\t\t\tDef: +2",
+        driveList.add(new ItemsK (R.drawable.firabangle, "Fira Ring", "Accessory Shop, chest in Hollow\nBastion, Red Nocturne (.5%)", "AP: +0 \t\t\tHP: +0\t\t\tDef: +2",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 20%\nElec Res: 0%\t\t\tDark Res: 0%"));
         driveList.add(new ItemsK (R.drawable.fagabang, "Firaga Ring", "Accessory Shop, Fat Bandit (1%)", "AP: +0 \t\t\tHP: +0\t\t\tDef: +3",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 20%\nElec Res: 0%\t\t\tDark Res: 0%"));
@@ -145,13 +156,13 @@ public class kh1Acc extends AppCompatActivity {
         driveList.add(new ItemsK (R.drawable.pribb, "Ray of Light", "Agrabah - Pot Centipede", "AP: +0 \t\t\tHP: +3\t\t\tDef: +0",
                 "Str: +0", "MP: +1 \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 0%"));
 
-        driveList.add(new ItemsK (R.drawable.ribb, "Ribbon", "Item Synth, 90 Dalmations,\ndefault in Beginner", "AP: +0 \t\t\tHP: +0\t\t\tDef: +3",
+        driveList.add(new ItemsK (R.drawable.ribb, "Ribbon", "Item Synth, 90 dalmatians,\ndefault in Beginner", "AP: +0 \t\t\tHP: +0\t\t\tDef: +3",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 20%\t\t\tFire Res: 20%\nElec Res: 20%\t\t\tDark Res: 20%"));
         driveList.add(new ItemsK (R.drawable.executive, "Royal Crown", "Chest in Hollow Bastion", "AP: +0 \t\t\tHP: +0\t\t\tDef: +0",
                 "Str: -2", "MP: +2 \t\t\tIce Res: 20%\t\t\tFire Res: 20%\nElec Res: 20%\t\t\tDark Res: 0%"));
         driveList.add(new ItemsK (R.drawable.bband, "Rune Armlet", "Item Synth", "AP: +0 \t\t\tHP: +0\t\t\tDef: +2",
                 "Str: +0", "MP: +1 \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 0%"));
-        driveList.add(new ItemsK (R.drawable.champbelt, "Shiva Belt", "Chest in Olympus Colisseum", "AP: +0 \t\t\tHP: +0\t\t\tDef: +0",
+        driveList.add(new ItemsK (R.drawable.champbelt, "Shiva Belt", "Chest in Olympus Coliseum", "AP: +0 \t\t\tHP: +0\t\t\tDef: +0",
                 "Str: +0", "MP: +2 \t\t\tIce Res: 40%\t\t\tFire Res: 0%\nElec Res: 0%\t\t\tDark Res: 0%"));
         driveList.add(new ItemsK (R.drawable.scharm, "Three Stars", "Item Synth", "AP: +0 \t\t\tHP: +0\t\t\tDef: +2",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 20%\t\t\tFire Res: 20%\nElec Res: 20%\t\t\tDark Res: 0%"));
@@ -160,7 +171,7 @@ public class kh1Acc extends AppCompatActivity {
 
         driveList.add(new ItemsK (R.drawable.ttrink, "Thunder Ring", "Accessory Shop, chest in Agrabah, Ariel", "AP: +0 \t\t\tHP: +0\t\t\tDef: +1",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 20%\t\t\tDark Res: 0%"));
-        driveList.add(new ItemsK (R.drawable.taratrink, "Thundara Ring", "Accessory Shop, chest in Hollow Bastion,\n" +
+        driveList.add(new ItemsK (R.drawable.taratrink, "Thundara Ring", "Accessory Shop, chest in\nHollow Bastion, " +
                 "Yellow Opera (.5%)", "AP: +0 \t\t\tHP: +0\t\t\tDef: +2",
                 "Str: +0", "MP: +0 \t\t\tIce Res: 0%\t\t\tFire Res: 0%\nElec Res: 20%\t\t\tDark Res: 0%"));
         driveList.add(new ItemsK (R.drawable.tagatrink, "Thundaga Ring", "Accessory Shop, Aquatank(1%),\nScrewdriver(.2%),", "AP: +0 \t\t\tHP: +0\t\t\tDef: +3",
@@ -181,15 +192,15 @@ public class kh1Acc extends AppCompatActivity {
     public void showItem (int position) {
 
 
-        String toToast = driveList.get(position).getText1();
-        //Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+        String toToast = driveList.get(position).getText2();
+        //Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
         //toast.show();
 
         if(toToast.equals("emptykh1 Form")) {
             //startActivity(new Intent(Drives.this, kh2Menu.class));
         }
         else{
-            Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+            Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
             toast.show();
         }
 
@@ -199,11 +210,11 @@ public class kh1Acc extends AppCompatActivity {
         rView = (RecyclerView) findViewById(R.id.recView);
         rView.setHasFixedSize(true);
         myLayout = new LinearLayoutManager(this);
-        mAdapter = new KH2keybladeAdapter(driveList);
+        mAdapter = new kh1AccessAdaptor(driveList);
         rView.setLayoutManager(myLayout);
         rView.setAdapter(mAdapter);
 
-        mAdapter.setOnItemClickListener(new KH2keybladeAdapter.OnItemClickListener() {
+        mAdapter.setOnItemClickListener(new kh1AccessAdaptor.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
                 showItem(position);

@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -28,12 +31,20 @@ public class kh1Skill extends AppCompatActivity {
     private RecyclerView.LayoutManager myLayout;
 
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh1_dal);
         genList();
         buildRecycle();
+
+        int currentOrientation = getResources().getConfiguration().orientation;
+        if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
 
         AdView mAdView;
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
@@ -86,10 +97,10 @@ public class kh1Skill extends AppCompatActivity {
                 "Leap toward the enemy and attack", "Sword: lv 33",
                 "Shield: lv 60", "Rod: lv 78"));
         driveList.add(new ItemsK (R.drawable.emptykh1, "Treasure Magnet 1",
-                "Dropped items will be magnetized toward \nyou", "Sword: lv 36",
+                "Dropped items will be magnetized\ntoward you", "Sword: lv 36",
                 "Shield: lv 30", "Rod: lv 9"));
         driveList.add(new ItemsK (R.drawable.emptykh1, "Ripple Drive",
-                "Finishing move, good against large groups", "Sword: lv 39",
+                "Finishing move, good against large\ngroups", "Sword: lv 39",
                 "Shield: lv 69", "Rod: lv 12"));
         driveList.add(new ItemsK (R.drawable.emptykh1, "MP Haste",
                 "Gain MP back faster", "Sword: lv 45",
@@ -124,7 +135,7 @@ public class kh1Skill extends AppCompatActivity {
                 "Shield: lv 93", "Rod: lv 24"));
 
         driveList.add(new ItemsK (R.drawable.emptykh1, "Treasure Magnet 2",
-                "Dropped items will be magnetized toward \nyou", "Sword: lv 75",
+                "Dropped items will be magnetized\ntoward you", "Sword: lv 75",
                 "Shield: lv 57", "Rod: lv 72"));
 
         driveList.add(new ItemsK (R.drawable.emptykh1, "Berserk",
@@ -188,20 +199,17 @@ public class kh1Skill extends AppCompatActivity {
                 "Chance an attack will reduce foe's HP\nby half", "Time Trial Hades Cup",
                 "", ""));
         driveList.add(new ItemsK (R.drawable.emptykh1, "Zantesuken",
-                "Deals gravity damage according to 250%\nof enemy's HP", "Defeat Kurt Zisa",
+                "Deals gravity damage according to\n250% of enemy's HP", "Defeat Kurt Zisa",
                 "", ""));
 
         driveList.add(new ItemsK (R.drawable.emptykh1, "Encounter Up",
                 "Encounter rates are increased", "Defeat Guard Armor",
                 "", ""));
         driveList.add(new ItemsK (R.drawable.emptykh1, "Tech Up 4",
-                "Gain more EXP from techs", "Find 90 dalmations",
+                "Gain more EXP from techs", "Find 90 dalmatians",
                 "", ""));
         driveList.add(new ItemsK (R.drawable.emptykh1, "Cheer",
                 "Increases Summon MP Gauge", "Complete 100 Acre Wood",
-                "", ""));
-
-        driveList.add(new ItemsK (R.drawable.emptykh1, "", "", "",
                 "", ""));
 
 
@@ -210,15 +218,15 @@ public class kh1Skill extends AppCompatActivity {
     public void showItem (int position) {
 
 
-        String toToast = driveList.get(position).getText1();
-        //Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+        String toToast = driveList.get(position).getText2();
+        //Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
         //toast.show();
 
         if(toToast.equals("emptykh1 Form")) {
             //startActivity(new Intent(Drives.this, kh2Menu.class));
         }
         else{
-            Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+            Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
             toast.show();
         }
 

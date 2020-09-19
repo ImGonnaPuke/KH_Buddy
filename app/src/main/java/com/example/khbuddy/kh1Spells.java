@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -29,10 +32,18 @@ public class kh1Spells extends AppCompatActivity {
     //public static AdView mAdView;
 
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh1_dal);
+
+        int currentOrientation = getResources().getConfiguration().orientation;
+        if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
 
 
         genList();
@@ -57,7 +68,7 @@ public class kh1Spells extends AppCompatActivity {
         driveList = new ArrayList<>();
         driveList.add(new Items (R.drawable.fire, "Fire", "Defeat Guard Armor"));
         driveList.add(new Items (R.drawable.fire, "Fira", "Defeat Genie Jafar"));
-        driveList.add(new Items (R.drawable.fire, "Firaga", "Speak to the Princesses in Hollow Bastion"));
+        driveList.add(new Items (R.drawable.fire, "Firaga", "Speak to the Princesses in\nHollow Bastion"));
 
         driveList.add(new Items (R.drawable.ice, "Blizzard", "Find all evidence in Wonderland"));
         driveList.add(new Items (R.drawable.ice, "Blizzara", "Defeat Jafar"));
@@ -81,10 +92,7 @@ public class kh1Spells extends AppCompatActivity {
 
         driveList.add(new Items (R.drawable.aero, "Aero", "Defeat Opposite Armor"));
         driveList.add(new Items (R.drawable.aero, "Aerora", "Yellow Trinity in Neverland"));
-        driveList.add(new Items (R.drawable.aero, "Aeroga", "All 99 puppies"));
-
-        driveList.add(new Items (R.drawable.emptykh1, "", ""));
-
+        driveList.add(new Items (R.drawable.aero, "Aeroga", "All 99 dalmatians"));
 
 
 
@@ -94,7 +102,7 @@ public class kh1Spells extends AppCompatActivity {
     public void showItem (int position) {
 
 
-        String toToast = driveList.get(position).getText1();
+        String toToast = driveList.get(position).getText2();
         //Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
         //toast.show();
 
@@ -102,7 +110,7 @@ public class kh1Spells extends AppCompatActivity {
             //startActivity(new Intent(Drives.this, kh2Menu.class));
         }
         else{
-            Toast toast = Toast. makeText(getApplicationContext(), toToast + " selected", Toast. LENGTH_SHORT);
+            Toast toast = Toast. makeText(getApplicationContext(), toToast + "", Toast. LENGTH_SHORT);
             toast.show();
         }
 

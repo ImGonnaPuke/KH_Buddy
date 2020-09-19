@@ -2,11 +2,16 @@ package com.example.khbuddy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -29,10 +34,18 @@ public class kh2Menu extends AppCompatActivity {
     public static AdView mAdView;
 
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh2_menu);
+
+        int currentOrientation = getResources().getConfiguration().orientation;
+        if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
 
 
 
@@ -56,6 +69,23 @@ public class kh2Menu extends AppCompatActivity {
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+        mAdView.setAdListener(new AdListener(){
+            @Override
+            public void onAdLoaded(){
+                //Toast toast = Toast. makeText(getApplicationContext(), "Working!!", Toast. LENGTH_SHORT);
+                //toast.show();
+            }
+            @Override
+            public void onAdFailedToLoad(int errorCode){
+                //Toast toast = Toast. makeText(getApplicationContext(), "Failed!! Code: " + errorCode, Toast. LENGTH_SHORT);
+                //toast.show();
+            }
+
+
+
+
+        });
 
 
 
